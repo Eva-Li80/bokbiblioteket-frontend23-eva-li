@@ -1,0 +1,33 @@
+@import "../styles//variables.scss";
+.header{
+    background-color: $color-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-image: url("../../../public/assets/books-4515917_1280.jpg");
+    background-size: cover;
+    background-position:top; 
+    background-repeat: no-repeat; 
+
+    h2{
+        font-size: 60px;
+        font-weight: bold;
+        margin-right: 25px;
+        background: linear-gradient(
+            to right, 
+            #ffffff 0%,  
+            #f8b40a 20%, 
+            #ffffff 50%,  
+            #f8b40a 80%, 
+            #ffffff 100%
+
+           
+        
+           
+          );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+    }
+}
