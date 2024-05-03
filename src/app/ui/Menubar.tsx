@@ -7,11 +7,11 @@ const Menubar = () => {
     <div className={styles.menubar}>
       <ul>
         <li>
-          <Link href="/biblioteket/favoritbooks">Favorit böcker</Link>
-          <Link href="/biblioteket/favoritauthors">Favorit författare</Link>
-          <Link href="/biblioteket/readbooks">Lästa böcker</Link>
-          <Link href="/biblioteket/search">Sök</Link>
-          <Link href="/biblioteket">Tillbaka till start</Link>
+          <Link href="/favoritbooks">Favorit böcker</Link>
+          <Link href="/favoritauthors">Favorit författare</Link>
+          <Link href="/readbooks">Lästa böcker</Link>
+          <Link href="/search">Sök</Link>
+          <Link href="/">Tillbaka till start</Link>
         </li>
       </ul>
     </div>
