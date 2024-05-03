@@ -1,6 +1,7 @@
 "use client";
 
-import { Author, Book} from "@/app/lib/types";
+
+import { Author, Book } from "@/app/lib/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 

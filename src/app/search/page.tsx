@@ -1,11 +1,13 @@
-import Link from 'next/link'
-import React from 'react'
+import React from "react";
+import FavoritAuthor from "../ui/FavoritAuthor";
+import FavoritBook from "../ui/FavoritBook";
+
 
 export default function page() {
   return (
     <div>
-      <h2>search</h2>
-      <Link href="/biblioteket">Biblioteket</Link>
+       <FavoritAuthor/>
+       <FavoritBook/>
     </div>
-  )
+  );
 }
