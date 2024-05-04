@@ -1,7 +1,7 @@
 import styles from "./biblioteket.module.scss"
 import { fetchBooks } from "./lib/getApi";
 import { Book } from "./lib/types";
-import Card from "./ui/Card";
+import Card from "./components/Card";
 
 export default async function Home() {
   const books: Book[] = await fetchBooks();

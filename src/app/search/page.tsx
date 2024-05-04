@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import FavoritAuthor from "../ui/FavoritAuthor";
+import FavoritAuthor from "../components/FavoritAuthor";
 
 import styles from "./search.module.scss";
-import { FavoritBook } from "../ui/FavoritBook";
+import { FavoritBook } from "../components/FavoritBook";
 
 export default function page() {
   const [search, setSearch] = useState("");
