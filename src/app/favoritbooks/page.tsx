@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
-import { removeFavoritBook } from "@/app/globalredux/feature/books/bookSlice";
+import { removeFavoritBook } from "@/app/globalredux/feature/slices/bookSlice";
 import styles from "./favoritbooks.module.scss"
 import Link from "next/link";
 const page = () => {

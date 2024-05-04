@@ -1,14 +1,15 @@
 "use client"
-import { addToFavoritAuthor, selectAuthor } from '@/app/globalredux/feature/books/bookSlice';
+
 import { RootState } from '@/app/globalredux/store';
 import { Author } from '@/app/lib/types';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "../search.module.scss"
+import { addToFavoritAuthor, selectAuthor } from '@/app/globalredux/feature/slices/authorSlice';
 export default function page() {
-    const authors = useSelector((state: RootState) => state.book.authors);
-    const selectedAuthor = useSelector((state: RootState) => state.book.selectedAuthor);
+    const authors = useSelector((state: RootState) => state.authors.authors);
+    const selectedAuthor = useSelector((state: RootState) => state.authors.selectedAuthor);
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
 

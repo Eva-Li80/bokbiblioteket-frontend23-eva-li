@@ -3,7 +3,7 @@ import {
   addToFavoritBooks,
   selectBook,
   setBooks,
-} from "@/app/globalredux/feature/books/bookSlice";
+} from "@/app/globalredux/feature/slices/bookSlice";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
 import Link from "next/link";

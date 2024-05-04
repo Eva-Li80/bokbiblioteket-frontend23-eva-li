@@ -5,7 +5,7 @@ import { Book } from "@/app/lib/types";
 import {
   setBooks,
 
-} from "@/app/globalredux/feature/books/bookSlice";
+} from "@/app/globalredux/feature/slices/bookSlice";
 import { fetchBooksByTitle } from "@/app/lib/getApi";
 import Link from "next/link";
 import styles from "./favorits.module.scss";

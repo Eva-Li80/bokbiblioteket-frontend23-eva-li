@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Author} from "@/app/lib/types";
-import { setAuthors} from "@/app/globalredux/feature/books/bookSlice";
 import { fetchAthurByName } from "@/app/lib/getApi";
 import Link from "next/link";
 import styles from "./favorits.module.scss";
+import { setAuthors } from "../globalredux/feature/slices/authorSlice";
 
 const FavoritAuthor = () => {
   const dispatch = useDispatch();

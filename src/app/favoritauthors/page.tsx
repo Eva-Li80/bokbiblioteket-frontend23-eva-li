@@ -2,11 +2,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
 import { Author} from "@/app/lib/types";
-import { removeFavoritAuhor } from "@/app/globalredux/feature/books/bookSlice";
 import styles from "./favoritauthors.module.scss"
+import { removeFavoritAuhor } from "../globalredux/feature/slices/authorSlice";
 
 const page = () => {
-  const favoriteBooks = useSelector((state: RootState) => state.book.favoritAuthors);
+  const favoriteAuthors = useSelector((state: RootState) => state.authors.favoritAuthors);
   const dispatch = useDispatch();
   const handleRemoveFavoritAthur = (author: Author) => {
     dispatch(removeFavoritAuhor(author))
@@ -15,7 +15,7 @@ const page = () => {
   return (
     <div className={styles.favbooks}>
       <h1>Favorit Författare</h1>
-      {favoriteBooks.map((author:Author, index: number) => (
+      {favoriteAuthors.map((author:Author, index: number) => (
         <div key={index} className={styles.listitem}>
           <h2>{author.name}</h2>
           <button onClick={() => handleRemoveFavoritAthur(author)}>X</button>
