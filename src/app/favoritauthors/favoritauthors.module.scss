@@ -1,0 +1,27 @@
+@import "../styles/functions.scss";
+@import "../styles/variables.scss";
+
+.favbooks{
+    @include displayFlexStandard(column);
+
+    h1{
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .listitem{
+        @include displayFlexStandard(row);
+
+        h2{
+            font-size: 25px;
+        }
+      }
+  
+      button{
+          padding: 10px;
+          margin-left: 15px;
+          background-color: $color-yellow;
+          color: $color-blue-dark;
+          border: 3px solid$color-blue-dark;
+      }
+}

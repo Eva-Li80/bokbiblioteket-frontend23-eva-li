@@ -1,0 +1,22 @@
+@import "../app//styles/variables.scss";
+@import "../app//styles/functions.scss";
+
+.title {
+    @include displayFlexStandard(row);
+  font-size: 30px;
+  padding: 30px;
+  margin-left: 85px;
+  color: $color-blue;
+  font-weight: bold;
+}
+.main {
+background-color: whitesmoke;
+
+  .biblioteket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

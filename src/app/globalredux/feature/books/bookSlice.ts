@@ -1,9 +1,6 @@
 "use client";
-
-
 import { Author, Book } from "@/app/lib/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 
 type BookState = {
   books: Book[];

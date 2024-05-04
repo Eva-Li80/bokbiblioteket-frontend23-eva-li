@@ -1,0 +1,22 @@
+@import "../styles//functions.scss";
+@import "../styles/variables.scss";
+
+.favorits{
+    @include displayFlexStandard(row);
+    margin: 50px;
+
+    input{
+        padding: 30px;
+        border: 2px solid $color-blue;
+    }
+
+    a{
+        font-size: 20px;
+            margin: 20px;
+            padding: 20px;
+            background-color: $color-blue-dark;
+            color: $color-white;
+            border: 5px solid $color-blue;
+            border-radius: 20px;
+    }
+}

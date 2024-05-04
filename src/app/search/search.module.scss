@@ -1,0 +1,97 @@
+@import "../styles/functions.scss";
+@import "../styles/variables.scss";
+
+.search{
+    @include displayFlexStandard(column);
+    padding: 60px;
+  
+
+    h1{
+       font-size: 30px;
+       padding: 50px;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    .btn{
+       
+        button{
+            font-size: 20px;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: $color-blue;
+            color: $color-white;
+            border: 5px solid $color-blue;
+            border-radius: 20px;
+        }
+    }
+}
+
+.favoritlist{
+    @include displayFlexStandard(column);
+
+    h1{
+        font-size: 30px;
+        padding-top: 20px;
+    }
+
+    .favoritlistitem{
+        @include displayFlexStandard(column);
+        font-size: 20px;
+        width: 500px;
+        background-color: $color-gray;
+        border: 2px solid $color-black;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+.favoritlist{
+    padding-top: 20px;
+    @include displayFlexStandard(column);
+
+    h2{
+        font-size: 30px;
+        padding-top: 20px;
+    }
+
+    
+    a{
+        font-size: 20px;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: $color-blue;
+        color: $color-white;
+        border: 5px solid $color-blue;
+        border-radius: 20px;
+    }
+
+    .favoritlistdetails{
+        @include displayFlexStandard(column);
+        background-color: rgb(250, 243, 228);
+        padding: 20px;
+        
+        h2{
+            font-size: 30px;
+            padding-top: 20px;
+        }
+        
+        p{
+            width: 800px;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        a{
+            font-size: 20px;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: $color-blue;
+            color: $color-white;
+            border: 5px solid $color-blue;
+            border-radius: 20px;
+        }
+        
+    }
+}

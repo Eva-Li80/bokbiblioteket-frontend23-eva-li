@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    height: 20vh;
     background-image: url("../../../public/assets/books-4515917_1280.jpg");
     background-size: cover;
     background-position:top; 
@@ -17,12 +17,15 @@
         margin-right: 25px;
         background: linear-gradient(
             to right, 
-            #ffffff 0%,  
+            #ffffff 10%,  
             #f8b40a 20%, 
-            #ffffff 50%,  
+            rgb(74, 128, 163) 30%,
+            #f8b40a 40%,
+            #ffffff 60%,
+            rgb(74, 128, 163) 70%,
             #f8b40a 80%, 
-            #ffffff 100%
-
+            #fff 100%
+            
            
         
            
