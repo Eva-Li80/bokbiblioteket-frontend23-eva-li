@@ -1,6 +1,6 @@
 import { Author, Book} from "./types";
 
-const apiUrl = `https://openlibrary.org/search.json?q=*&limit=5`;
+const apiUrl = `https://openlibrary.org/search.json?q=*&limit=20`;
 
 
 export async function fetchBooks(): Promise<Book[]> {

@@ -1,8 +1,8 @@
 "use client";
 import {
   addToFavoritBooks,
+  addToReadBooks,
   selectBook,
-  setBooks,
 } from "@/app/globalredux/feature/slices/bookSlice";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
@@ -10,6 +10,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
+
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
   const selectedBook = useSelector(
@@ -24,8 +25,17 @@ export default function page() {
 
   const handleAddBook = (book: Book) => {
     dispatch(addToFavoritBooks(book));
+    dispatch(selectBook(null)); 
     setSearch("");
   };
+
+
+  const handleAddBookRead = (book: Book) => {
+    dispatch(addToReadBooks(book));
+    dispatch(selectBook(null)); 
+    setSearch("");
+  };
+
 
   return (
     <div className={styles.favoritlist}>
@@ -48,6 +58,12 @@ export default function page() {
             onClick={() => handleAddBook(selectedBook)}
           >
             Lägg till bok till favoritlistan
+          </Link>
+          <Link
+            href="/readbooks"
+            onClick={() => handleAddBookRead(selectedBook)}
+          >
+            Lägg till bok till lästa böcker
           </Link>
         </div>
       ) : (

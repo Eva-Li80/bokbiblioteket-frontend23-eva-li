@@ -1,16 +1,23 @@
-@import "../styles/functions.scss";
+@import "../styles//functions.scss";
 @import "../styles/variables.scss";
 
 .favbooks{
     @include displayFlexStandard(column);
 
+
     h1{
       font-size: 30px;
       font-weight: bold;
+      margin-bottom: 20px
+
     }
     .listitem{
         @include displayFlexStandard(row);
-
+        background-color:$color-white;
+        border: 2px solid $color-green;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 25px;
         h2{
             font-size: 25px;
            

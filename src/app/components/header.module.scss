@@ -17,17 +17,9 @@
         margin-right: 25px;
         background: linear-gradient(
             to right, 
-            #ffffff 10%,  
-            #f8b40a 20%, 
-            rgb(74, 128, 163) 30%,
-            #f8b40a 40%,
-            #ffffff 60%,
-            rgb(74, 128, 163) 70%,
-            #f8b40a 80%, 
-            #fff 100%
-            
-           
-        
+            $color-yellow,
+            $color-white,
+       
            
           );
   -webkit-background-clip: text;

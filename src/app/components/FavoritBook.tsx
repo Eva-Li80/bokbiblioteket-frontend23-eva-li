@@ -14,19 +14,19 @@ export function FavoritBook() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
-  const searchBook = async () => {
-    try {
-      const filteredBooks = await fetchBooksByTitle(search);
-      console.log(filteredBooks)
-      dispatch(setBooks(filteredBooks as Book[]));
-    } catch (error) {
-      console.error("Error fetching book:", error);
-    }
+  const searchBook = () => {
+    fetchBooksByTitle(search) 
+      .then(filteredBooks => {
+        dispatch(setBooks(filteredBooks as Book[]));
+      })
+      .catch(error => {
+        console.error("Error fetching books:", error);
+      });
   };
 
   useEffect(() => {
     searchBook();
-  }, [dispatch]);
+  }, []);
 
   const handleSearchClick = () => {
     searchBook();

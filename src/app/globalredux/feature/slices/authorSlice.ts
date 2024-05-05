@@ -21,7 +21,7 @@ const authorSlice = createSlice({
     setAuthors(state, action: PayloadAction<Author[]>) {
       state.authors = action.payload;
     },
-    selectAuthor(state, action: PayloadAction<Author>){
+    selectAuthor(state, action: PayloadAction<Author | null>){
       state.selectedAuthor = action.payload
     },
     addToFavoritAuthor(state, action: PayloadAction<Author>) {
@@ -36,3 +36,5 @@ const authorSlice = createSlice({
 
 export const { setAuthors, addToFavoritAuthor, selectAuthor, removeFavoritAuhor } = authorSlice.actions;
 export const authorSliceReducer = authorSlice.reducer;
+
+

@@ -13,15 +13,17 @@ export default function page() {
   };
   return (
     <div className={styles.search}>
-      <h1>Välkommen till sök sidan!</h1>
-      <h2>Här kan du välja att söka på boktitel eller författarens namn?</h2>
-      <div className={styles.btn}>
-        <button onClick={() => handleSearch("title")}>Sök på boktitel</button>
-        <button onClick={() => handleSearch("författarnamn")}>
-          Sök på författarens namn
-        </button>
-        {search === "författarnamn" && <FavoritAuthor />}
-        {search === "title" && <FavoritBook />}
+      <div className={styles.searchbox}>
+        <h1>Välkommen!</h1>
+        <h2>Här kan du välja att söka på boktitel eller författarens namn?</h2>
+        <div className={styles.btn}>
+          <button onClick={() => handleSearch("title")}>Sök på boktitel</button>
+          <button onClick={() => handleSearch("författarnamn")}>
+            Sök på författarens namn
+          </button>
+          {search === "författarnamn" && <FavoritAuthor />}
+          {search === "title" && <FavoritBook />}
+        </div>
       </div>
     </div>
   );

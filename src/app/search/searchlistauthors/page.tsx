@@ -20,6 +20,7 @@ export default function page() {
     
     const handleAddAuthor = (author: Author) => {
       dispatch(addToFavoritAuthor(author)); 
+      dispatch(selectAuthor(null)); 
       setSearch("")
     };
   

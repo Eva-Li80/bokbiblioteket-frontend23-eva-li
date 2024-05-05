@@ -12,3 +12,10 @@
   flex-direction: $direction;
   flex-wrap: wrap;
 }
+
+@mixin displayFlexjustify($direction) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
