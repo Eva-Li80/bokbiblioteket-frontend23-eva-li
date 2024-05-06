@@ -2,7 +2,8 @@
 @import "../app//styles/functions.scss";
 
 .main {
-  background-color: whitesmoke;
+background-color: #586e5d;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +11,14 @@
   .title {
     font-size: 40px;
     margin: 60px 0 20px 0;
-    color: $color-blue;
+    color:#FCA2A2;
     font-weight: bold;
     text-decoration: underline;
     background: linear-gradient(
       to right, 
-      $color-blue-dark,
-      $color-green,
-     $color-red,
-      $color-blue,
-      $color-gold,
+  $color-pink,
+  $color-light,
+  $color-white,
     );
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent; 
@@ -27,8 +26,8 @@
 
   .biblioteket {
     @include displayFlexjustify(row);
-    background-color:$color-white;
-    border: 2px solid $color-green;
+    background-color: #39473c;
+    border: 2px solid #FCA2A2;
     border-radius: 25px;
     width: 80vw;
     margin: 20px;
