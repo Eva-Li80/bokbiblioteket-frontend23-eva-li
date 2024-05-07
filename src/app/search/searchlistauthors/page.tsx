@@ -13,7 +13,6 @@ export default function page() {
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
 
-  
     const handleAuthorClick = (author: Author) => {
       dispatch(selectAuthor(author)); 
     };

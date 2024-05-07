@@ -1,8 +1,6 @@
 import { Book } from "@/app/lib/types";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
-
 export const fetchBooks = createAsyncThunk<Book[], string>(
   "books/fetchBooksByTitle",
   async (title: string, { rejectWithValue }) => {
@@ -19,25 +17,6 @@ export const fetchBooks = createAsyncThunk<Book[], string>(
     }
   }
 );
-
-// const apiUrl = `https://openlibrary.org/search.json?author=tolkien&sort=new`;
-
-
-// export const fetchBooks = createAsyncThunk<Book[], void, { rejectValue: Error }>(
-//   "books/fetchBooks",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const response = await fetch(apiUrl); 
-//       if (!response.ok) {
-//         throw new Error('Failed to fetch books');
-//       }
-//       const data = await response.json();
-//       return data.docs;
-//     } catch (err) {
-//       return rejectWithValue(err as Error);
-//     }
-//   }
-// );
 
 type BookState = {
   books: Book[];
@@ -70,7 +49,7 @@ const bookSlice = createSlice({
     },
     removeFavoritBook(state, action: PayloadAction<Book>) {
       state.favoritBooks = state.favoritBooks.filter(
-        (book) => book.id !== action.payload.id
+        (book) => book.key !== action.payload.key
       );
     },
     addToReadBooks(state, action: PayloadAction<Book>) {
@@ -78,7 +57,7 @@ const bookSlice = createSlice({
     },
     removeReadBook(state, action: PayloadAction<Book>) {
       state.readBooks = state.readBooks.filter(
-        (book) => book.id !== action.payload.id
+        (book) => book.key !== action.payload.key
       );
     },
   },

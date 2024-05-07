@@ -17,8 +17,8 @@ export function FavoritBook() {
 
   const searchBook = async () => {
     try {
-      const filteredAuthors = await fetchBooksByTitle(search);
-      dispatch(setBooks(filteredAuthors as Book[]));
+      const filteredBooks = await fetchBooksByTitle(search);
+      dispatch(setBooks(filteredBooks as Book[]));
     } catch (error) {
       console.error("Error fetching book:", error);
     }

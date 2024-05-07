@@ -27,10 +27,13 @@ const authorSlice = createSlice({
     addToFavoritAuthor(state, action: PayloadAction<Author>) {
       state.favoritAuthors.push(action.payload);
     },
-    removeFavoritAuhor(state, action: PayloadAction<Author>){
-      const removeAuthor = action.payload;
-      state.favoritAuthors = state.favoritAuthors.filter((author) => author.id !== removeAuthor.id)
-     }
+    removeFavoritAuhor(state, action: PayloadAction<Author>) {
+      state.favoritAuthors = state.favoritAuthors.filter(
+        (author) =>  author.key !== action.payload.key
+      );
+    }
+    
+    
   },
 });
 

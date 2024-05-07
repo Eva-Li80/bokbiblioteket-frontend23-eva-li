@@ -25,17 +25,15 @@ export default function page() {
 
   const handleAddBook = (book: Book) => {
     dispatch(addToFavoritBooks(book));
-    dispatch(selectBook(null)); 
+    dispatch(selectBook(null));
     setSearch("");
   };
-
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
-    dispatch(selectBook(null)); 
+    dispatch(selectBook(null));
     setSearch("");
   };
-
 
   return (
     <div className={styles.favoritlist}>
