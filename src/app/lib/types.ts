@@ -1,5 +1,6 @@
 export type Book = {
     id: number| string
+    key: string
     title: string;
     author_name: string[];
     first_publish_year: number;
