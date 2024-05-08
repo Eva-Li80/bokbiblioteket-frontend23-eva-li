@@ -2,25 +2,29 @@
 @import "../styles/variables.scss";
 
 .search{
-    @include displayFlexStandard(column);
-    padding: 60px;
+   display: flex;
+   justify-content: center;
+    background-color: $color-lightgreen;
+    min-height: 100vh;
 
 
     .searchbox{
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         flex-direction: column;
         align-items: center;
         background-color:$color-white;
         border: 2px solid $color-green;
         border-radius: 25px;
         width: 60vw;
+        height: 50vh;
+        margin-top: 100px;
     }
   
 
     h1{
        font-size: 30px;
-       padding: 50px;
+       padding: 30px;
     }
 
     h2{
@@ -43,7 +47,6 @@
 }
 
 .favoritlist{
-    @include displayFlexStandard(column);
 
     h1{
         font-size: 30px;
@@ -64,6 +67,8 @@
 .favoritlist{
     padding-top: 20px;
     @include displayFlexStandard(column);
+    background-color: $color-lightgreen;
+    min-height: 100vh;
 
     h2{
         font-size: 30px;
@@ -101,7 +106,7 @@
         }
 
         a{
-            font-size: 20px;
+            font-size: 10px;
             margin: 20px;
             padding: 10px 20px;
             background-color: $color-blue;
@@ -112,3 +117,4 @@
         
     }
 }
+

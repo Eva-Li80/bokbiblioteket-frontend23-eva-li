@@ -5,7 +5,7 @@ import { Book } from "@/app/lib/types";
 import {
   setBooks,
 
-} from "@/app/globalredux/feature/slices/bookSlice";
+} from "@/app/globalredux/feature/books/bookSlice";
 import { fetchBooksByTitle } from "@/app/lib/getApi";
 import Link from "next/link";
 import styles from "./favorits.module.scss";
@@ -13,8 +13,7 @@ import styles from "./favorits.module.scss";
 export function FavoritBook() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
-
-
+  
   const searchBook = async () => {
     try {
       const filteredBooks = await fetchBooksByTitle(search);

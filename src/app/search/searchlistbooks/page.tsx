@@ -2,37 +2,34 @@
 import {
   addToFavoritBooks,
   addToReadBooks,
-  selectBook,
-} from "@/app/globalredux/feature/slices/bookSlice";
+} from "@/app/globalredux/feature/books/bookSlice";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
-import Link from "next/link";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
 
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
-  const selectedBook = useSelector(
-    (state: RootState) => state.book.selectedBook
-  );
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
   const handleBookClick = (book: Book) => {
-    dispatch(selectBook(book));
+    setSelectedBook(book)
   };
 
   const handleAddBook = (book: Book) => {
     dispatch(addToFavoritBooks(book));
-    dispatch(selectBook(null));
     setSearch("");
+    setSelectedBook(book) 
+
   };
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
-    dispatch(selectBook(null));
     setSearch("");
+    setSelectedBook(book)
   };
 
   return (
@@ -51,18 +48,12 @@ export default function page() {
           <p>Author name: {selectedBook.author_name}</p>
           <p>Year: {selectedBook.first_publish_year}</p>
           <p>Publisher: {selectedBook.publisher}</p>
-          <Link
-            href="/favoritbooks"
-            onClick={() => handleAddBook(selectedBook)}
-          >
+          <button onClick={() => handleAddBook(selectedBook)}>
             Lägg till bok till favoritlistan
-          </Link>
-          <Link
-            href="/readbooks"
-            onClick={() => handleAddBookRead(selectedBook)}
-          >
+          </button>
+          <button onClick={() => handleAddBookRead(selectedBook)}>
             Lägg till bok till lästa böcker
-          </Link>
+          </button>
         </div>
       ) : (
         <div className={styles.favoritlist}>

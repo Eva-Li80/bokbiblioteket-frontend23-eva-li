@@ -3,7 +3,7 @@
 
 .favorits{
     @include displayFlexStandard(row);
-   margin-top: 30px;
+   margin-top: 20px;
    background-color:$color-blue;
     border: 2px solid $color-green;
     border-radius: 25px;
@@ -22,7 +22,7 @@
             padding: 20px;
             background-color: $color-red;
             color: $color-white;
-            border: 3px solid $color-pink;
+            border: 3px solid $color-red;
             border-radius: 20px;
     }
 }
