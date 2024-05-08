@@ -7,6 +7,7 @@ export type Book = {
     publisher: string[];
     first_sentence: [];
     cover_i: number;
+    about?: AboutBook;
   };
   
   export type Author = {
@@ -20,5 +21,12 @@ export type Book = {
     type: string;
     work_count: number;
     _version_?: number;
+  }
+
+  export type AboutBook = {
+    review: string;
+    grade: string;
+    pages: string;
+    key: string
   }
   
