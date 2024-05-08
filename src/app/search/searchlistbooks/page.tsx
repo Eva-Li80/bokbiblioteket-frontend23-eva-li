@@ -8,8 +8,10 @@ import { Book } from "@/app/lib/types";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
+import Modal from "@/app/components/Module";
 
 export default function page() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const books = useSelector((state: RootState) => state.book.books);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const dispatch = useDispatch();
@@ -22,18 +24,33 @@ export default function page() {
   const handleAddBook = (book: Book) => {
     dispatch(addToFavoritBooks(book));
     setSearch("");
-    setSelectedBook(book) 
+    
+    setModalIsOpen(true);
+    setTimeout(() => {
+      setModalIsOpen(false);
+      setSelectedBook(book)
+    }, 3000);
 
   };
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
     setSearch("");
-    setSelectedBook(book)
+    setModalIsOpen(true);
+  
+    setTimeout(() => {
+      setModalIsOpen(false);
+      setSelectedBook(book)
+    }, 3000);
   };
 
   return (
     <div className={styles.favoritlist}>
+      <div className={styles.modal}>
+      <Modal isOpen={modalIsOpen}>
+        <h2>Boken har lagts till i din favorit lista</h2>
+      </Modal>
+      </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
           <h1>Bok detaljer</h1>
