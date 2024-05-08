@@ -1,12 +1,11 @@
 "use client"
-
 import { RootState } from '@/app/globalredux/store';
 import { Author } from '@/app/lib/types';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "../search.module.scss"
-import { addToFavoritAuthor, selectAuthor } from '@/app/globalredux/feature/slices/authorSlice';
+import { addToFavoritAuthor, selectAuthor } from '@/app/globalredux/feature/books/authorSlice';
 export default function page() {
     const authors = useSelector((state: RootState) => state.authors.authors);
     const selectedAuthor = useSelector((state: RootState) => state.authors.selectedAuthor);
@@ -32,9 +31,7 @@ export default function page() {
           <p>Top subjekt: {selectedAuthor.top_subjects}</p>
           <p>Top work{selectedAuthor.top_work}</p>
           <p>Work count: {selectedAuthor.work_count}</p>
-
           <Link href="/favoritauthors" onClick={() => handleAddAuthor(selectedAuthor)}>Lägg till författare i din favorit lisa med författare</Link>
-       
         </div>
       ) : (
         <div className={styles.favoritlist}>

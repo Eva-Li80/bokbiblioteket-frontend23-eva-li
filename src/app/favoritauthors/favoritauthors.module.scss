@@ -3,6 +3,8 @@
 
 .favbooks{
     @include displayFlexStandard(column);
+    background-color: $color-lightgreen;
+    min-height: 100vh;
 
     h1{
         font-size: 30px;
