@@ -1,12 +1,16 @@
 "use client";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
-import { Book } from "@/app/lib/types";
-import { removeReadBook } from "@/app/globalredux/feature/slices/bookSlice";
+import { Book, AboutBook } from "@/app/lib/types";
+import {
+  addInfoAboutBook,
+  removeReadBook,
+} from "@/app/globalredux/feature/books/bookSlice";
 import styles from "./readbooks.module.scss";
 import Form from "../components/Form";
-import { useState } from "react";
-const page = () => {
+
+const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const readBooks = useSelector((state: RootState) => state.book.readBooks);
   const dispatch = useDispatch();
@@ -16,10 +20,18 @@ const page = () => {
   };
 
   const handleSelectedBook = (book: Book) => {
-    if (selectedBook === book) {
-      setSelectedBook(null);
-    } else {
-      setSelectedBook(book);
+    setSelectedBook(book);
+  };
+  const handleSaveAboutBookInfo = (formData: AboutBook) => {
+    if (selectedBook && selectedBook.key) {
+      dispatch(
+        addInfoAboutBook({
+          key: selectedBook.key,
+          review: formData.review,
+          grade: formData.grade,
+          pages: formData.pages,
+        })
+      );
     }
   };
 
@@ -28,23 +40,31 @@ const page = () => {
       <h1>Lästa Böcker</h1>
       <h2>Klicka på en bok för att lägga till ditt tycke om den.</h2>
 
-      {readBooks.map((book: Book, index: number) => (
-        <div key={index} className={styles.listitem}>
+      {readBooks.map((book: Book) => (
+        <div key={book.key} className={styles.listitem}>
           <img
             src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
             alt="Omslagsbild"
             width={250}
             height={300}
           />
-<h2 onClick={() => handleSelectedBook(book)}>{book.title}</h2>
-          <p>{book.first_publish_year}</p>
-          <button onClick={() => handleRemoveReadBook(book)}>Ta bort bok från listan</button>
+          <h2 onClick={() => handleSelectedBook(book)}>{book.title}</h2>
+          <p>{book.first_publish_year} </p>
+          <p>Betyg för boken: {book.about?.grade} </p>
+          <p>Sidor: {book.about?.pages }</p>
+          <p>tycke om boken: {book.about?.review }</p>
 
-          {selectedBook === book && <Form />}
+          <button onClick={() => handleRemoveReadBook(book)}>
+            Ta bort bok från listan
+          </button>
+
+          {selectedBook && selectedBook.key === book.key && (
+            <Form onSave={handleSaveAboutBookInfo} />
+          )}
         </div>
       ))}
     </div>
   );
 };
 
-export default page;
+export default Page;
