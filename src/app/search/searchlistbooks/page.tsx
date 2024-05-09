@@ -53,7 +53,6 @@ export default function page() {
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
-          <h1>Bok detaljer</h1>
           <h2>Title: {selectedBook.title}</h2>
           <img
             src={`https://covers.openlibrary.org/b/id/${selectedBook.cover_i}-L.jpg`}
@@ -73,11 +72,19 @@ export default function page() {
           </button>
         </div>
       ) : (
-        <div className={styles.favoritlist}>
+        <div >
           <h1>Sökta titlar</h1>
           {books.map((book: Book, index: number) => (
-            <div key={index} onClick={() => handleBookClick(book)}>
-              <h2 className={styles.favoritlistitem}>{book.title}</h2>
+            <div className={styles.listcontainer} key={index} onClick={() => handleBookClick(book)}>
+              <h2 className={styles.favoritlistitem}>
+              <img
+            src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
+            alt="Omslagsbild"
+            width={60}
+            height={90}
+          />
+              {book.title}
+              </h2>
             </div>
           ))}
         </div>

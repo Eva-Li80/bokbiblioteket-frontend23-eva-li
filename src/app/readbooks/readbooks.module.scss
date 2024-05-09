@@ -7,6 +7,7 @@
     align-items: center;
   background-color: #586e5d;
   min-height: 100vh;
+  color: $color-white;
 
 
   h1 {
@@ -30,10 +31,38 @@
      width: 33vw;
     margin: 20px;
     padding-top: 50px;
-  
+    
+    button{
+      margin-left: 100px;
+      background-color: $color-red;
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 5px;
+    }
 
     img{
      padding: 20px;
+    }
+
+    .review{
+      @include displayFlexWrap(column);
+      margin: 50px 10px 20px 10px;
+      p{
+        margin: 10px;
+        color: $color-light;
+        font-size: 18px;
+      }
+
+      .click{
+        text-decoration: underline;
+        margin-bottom: 10px;
+        color: $color-pink;
+        cursor: pointer;
+      }
+
+      .reviews{
+        @include displayFlexWrap(row);
+      }
     }
   }
 }

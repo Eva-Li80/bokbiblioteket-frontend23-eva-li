@@ -4,25 +4,26 @@
 .favorits{
     @include displayFlexStandard(row);
    margin-top: 20px;
-   background-color:$color-blue;
-    border: 2px solid $color-green;
+   background-image: linear-gradient(to right, $color-green, $color-lightgreen);
+    border: 2px solid $color-lightgreen;
     border-radius: 25px;
     height: 300px;
     width: 600px;
     margin-bottom: 50px;
 
     input{
-        padding: 20px 30px;
+        padding: 10px 20px;
         border: 2px solid $color-blue;
     }
 
     a{
         font-size: 20px;
             margin: 20px;
-            padding: 20px;
-            background-color: $color-red;
-            color: $color-white;
-            border: 3px solid $color-red;
+            padding: 10px 20px;
+            color: $color-green;
+            background-color: #FFE7B9;
+            border: 3px solid $color-pink;
             border-radius: 20px;
+            margin-left: 50px;
     }
 }

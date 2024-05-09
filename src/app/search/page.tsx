@@ -4,6 +4,7 @@ import FavoritAuthor from "../components/FavoritAuthor";
 
 import styles from "./search.module.scss";
 import { FavoritBook } from "../components/FavoritBook";
+import Button from "../components/Button";
 
 export default function page() {
   const [search, setSearch] = useState("");
@@ -14,15 +15,20 @@ export default function page() {
   return (
     <div className={styles.search}>
       <div className={styles.searchbox}>
-        <h1>Välkommen!</h1>
-        <h2>Här kan du välja att söka på boktitel eller författarens namn?</h2>
-        <div className={styles.btn}>
-          <button onClick={() => handleSearch("title")}>Sök på boktitel</button>
-          <button onClick={() => handleSearch("författarnamn")}>
-            Sök på författarens namn
-          </button>
-          {search === "författarnamn" && <FavoritAuthor />}
+        {search === "författarnamn" && <FavoritAuthor />}
           {search === "title" && <FavoritBook />}
+        <div className={styles.btn}>
+          <div className={styles.btns}>
+            <h1>Sök på..</h1>
+            <Button onClick={() => handleSearch("title")}>
+            Boktitel
+            </Button>
+            <h1>eller..</h1>
+            <Button onClick={() => handleSearch("författarnamn")}>
+            Författares namn
+            </Button>
+          </div>
+          
         </div>
       </div>
     </div>

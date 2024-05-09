@@ -48,15 +48,21 @@ const Page = () => {
             width={250}
             height={300}
           />
-          <h2 onClick={() => handleSelectedBook(book)}>{book.title}</h2>
+          <h2>{book.title}</h2>
           <p>{book.first_publish_year} </p>
-          <p>Betyg för boken: {book.about?.grade} </p>
-          <p>Sidor: {book.about?.pages }</p>
-          <p>tycke om boken: {book.about?.review }</p>
-
-          <button onClick={() => handleRemoveReadBook(book)}>
-            Ta bort bok från listan
-          </button>
+          <div className={styles.review}>
+            <div className={styles.click}  onClick={() => handleSelectedBook(book)}>
+              <h1>Klicka här för att fylla i betyg</h1>
+            </div>
+            <div className={styles.reviews}>
+              <p>Betyg för boken: {book.about?.grade} </p>
+              <p>Sidor: {book.about?.pages}</p>
+              <p>tycke om boken: {book.about?.review}</p>
+              <button onClick={() => handleRemoveReadBook(book)}>
+                Ta bort bok
+              </button>
+            </div>
+          </div>
 
           {selectedBook && selectedBook.key === book.key && (
             <Form onSave={handleSaveAboutBookInfo} />
