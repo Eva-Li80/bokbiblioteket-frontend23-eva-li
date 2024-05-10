@@ -16,13 +16,13 @@ export default function page() {
          <Search type={search}/>
         <div className={styles.btn}>
           <div className={styles.btns}>
-            <h1>Sök på..</h1>
+            <h1>Search on...</h1>
             <Button onClick={() => handleSearch("book")}>
-            Boktitel
+            Book title
             </Button>
-            <h1>eller..</h1>
+            <h1>or..</h1>
             <Button onClick={() => handleSearch("author")}>
-            Författares namn
+            Authors name
             </Button>
           </div>
           

@@ -52,9 +52,7 @@ export default function page() {
   return (
     <div className={styles.favoritlist}>
       <div className={styles.modal}>
-        <Modal isOpen={modalIsOpen}>
-          <h2>Boken har lagts till i din favorit lista</h2>
-        </Modal>
+        <Modal isOpen={modalIsOpen} />
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
@@ -78,9 +76,9 @@ export default function page() {
             className={styles.star}
               onClick={handleAddBook}
               color={favorite ? "error" : "inherit"}
-           /> Markera som favorit
+           /> Mark as favorite
              <button onClick={() => handleAddBookRead(selectedBook)}>
-            Lägg till som läst bok
+            Add book to your list of read books
           </button>
           </div>
 
@@ -88,7 +86,7 @@ export default function page() {
         </div>
       ) : (
         <div>
-          <h1>Sökta titlar</h1>
+          <h1>Searched titles</h1>
           {books.map((book: Book, index: number) => (
             <div
               className={styles.listcontainer}

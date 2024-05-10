@@ -26,12 +26,12 @@ export default function page() {
     <div className={styles.favoritlist}>
          {selectedAuthor ? (
         <div>
-          <h2>Namn: {selectedAuthor.name}</h2>
-          <p>Födelsedag: {selectedAuthor.birth_date}</p>
-          <p>Top subjekt: {selectedAuthor.top_subjects}</p>
+          <h2>Name: {selectedAuthor.name}</h2>
+          <p>Birthdate: {selectedAuthor.birth_date}</p>
+          <p>Top subject: {selectedAuthor.top_subjects}</p>
           <p>Top work{selectedAuthor.top_work}</p>
           <p>Work count: {selectedAuthor.work_count}</p>
-          <Link href="/favoritauthors" onClick={() => handleAddAuthor(selectedAuthor)}>Lägg till författare i din favorit lisa med författare</Link>
+          <button onClick={() => handleAddAuthor(selectedAuthor)}>Add author to your authorlist..</button>
         </div>
       ) : (
         <div className={styles.favoritlist}>
