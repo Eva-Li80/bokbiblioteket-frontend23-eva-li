@@ -40,9 +40,9 @@ const Page = () => {
 
   return (
     <div className={styles.readbooks}>
-      <h1>Lästa Böcker</h1>
+      <h1>Read books</h1>
        <div className={styles.bookcount}>
-        <p>Du har läst {countBooks} bok/böcker & sammanlagt {totalPage} antal sidor</p>
+        <p>You have read {countBooks} book/books & total {totalPage} pages</p>
        </div>
 
       {readBooks.map((book: Book) => (
@@ -57,14 +57,14 @@ const Page = () => {
           <p>{book.first_publish_year} </p>
           <div className={styles.review}>
             <div className={styles.click}  onClick={() => handleSelectedBook(book)}>
-              <h1>Klicka här för att fylla i betyg</h1>
+              <h1>Click here to write reviews!</h1>
             </div>
             <div className={styles.reviews}>
-              <p>Betyg: {`${book.about?.grade} av 5 stjärnor`}  </p>
-              <p>Sidor: {book.about?.pages}</p>
-              <p>tycke om boken: {book.about?.review}</p>
+              <p>Rating: {`${book.about?.grade}/ out of 5 stars`}  </p>
+              <p>Pages: {book.about?.pages}</p>
+              <p>review: {book.about?.review}</p>
               <button onClick={() => handleRemoveReadBook(book)}>
-                Ta bort bok
+                Remove book
               </button>
             </div>
           </div>

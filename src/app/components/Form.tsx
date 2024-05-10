@@ -27,7 +27,7 @@ const Form = ({ onSave}: FormProps) => {
             <article className={styles.items}>
                 <input type="text" value={review} onChange={e => setReview(e.target.value)} placeholder='vad tyckte du....' />
                 <select value={grade} onChange={e => setGrade(e.target.value)}>
-                    <option value="">Hur många 🌟 får boken</option>
+                    <option value="">🌟 for the book?</option>
                     <option value="1">🌟</option>
                     <option value="2">🌟🌟</option>
                     <option value="3">🌟🌟🌟</option>
@@ -35,7 +35,7 @@ const Form = ({ onSave}: FormProps) => {
                     <option value="5">🌟🌟🌟🌟🌟</option>
                 </select>
                 <input type="text" value={pages} onChange={e => setPages(e.target.value)} placeholder='sidor..' />
-                <button onClick={handleSave}>Spara</button>
+                <button onClick={handleSave}>Save</button>
             </article>
         </div>
     );

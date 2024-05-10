@@ -51,7 +51,7 @@ export function Search({type}:SearchProps) {
         placeholder={type === "book" ? "Enter title...":"Enter author name"}
       />
       <Link href={type === "book" ? "/search/searchlistbooks" : "/search/searchlistauthors"} onClick={handleSearchClick}>
-        Sök
+        Search
       </Link>
     </div>
   );

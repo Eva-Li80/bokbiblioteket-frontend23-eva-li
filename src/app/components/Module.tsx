@@ -1,16 +1,16 @@
 
 import React, { ReactNode } from 'react';
+import styles from "./modules.module.scss"
 
 interface ModalProps {
   isOpen: boolean;
-  children: ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen,children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen}) => {
   return (
-    <div style={{ display: isOpen ? 'block' : 'none', width:"100%", height:"10vh", backgroundColor:"beige", borderRadius:20, padding: 10}}>
-      <div>
-        {children}
+    <div style={{ display: isOpen ? 'block' : 'none'}} className={styles.modules}>
+      <div className={styles.text}>
+        <h2>Added to your list 🎈</h2>
       </div>
     </div>
   );

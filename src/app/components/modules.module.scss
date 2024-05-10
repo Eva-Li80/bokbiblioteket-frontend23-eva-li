@@ -1,0 +1,19 @@
+@import "../styles/variables.scss";
+.modules {
+  width: 350px;
+  height: 150px;
+  background-color: $color-beigedark;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 130px;
+  border-bottom-right-radius: 100px;
+  position: fixed;
+  top: 70%;
+  left: 70%;
+
+  .text {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    font-size: 25px;
+  }
+}
