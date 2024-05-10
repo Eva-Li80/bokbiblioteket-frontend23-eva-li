@@ -15,6 +15,9 @@ const Page = () => {
   const readBooks = useSelector((state: RootState) => state.book.readBooks);
   const dispatch = useDispatch();
 
+  const countBooks = readBooks.length;
+  const totalPage = readBooks.reduce((total, book) => total + parseInt(book.about?.pages || "0"), 0)
+
   const handleRemoveReadBook = (book: Book) => {
     dispatch(removeReadBook(book));
   };
@@ -38,7 +41,9 @@ const Page = () => {
   return (
     <div className={styles.readbooks}>
       <h1>Lästa Böcker</h1>
-      <h2>Klicka på en bok för att lägga till ditt tycke om den.</h2>
+       <div className={styles.bookcount}>
+        <p>Du har läst {countBooks} bok/böcker & sammanlagt {totalPage} antal sidor</p>
+       </div>
 
       {readBooks.map((book: Book) => (
         <div key={book.key} className={styles.listitem}>
@@ -55,7 +60,7 @@ const Page = () => {
               <h1>Klicka här för att fylla i betyg</h1>
             </div>
             <div className={styles.reviews}>
-              <p>Betyg för boken: {book.about?.grade} </p>
+              <p>Betyg: {`${book.about?.grade} av 5 stjärnor`}  </p>
               <p>Sidor: {book.about?.pages}</p>
               <p>tycke om boken: {book.about?.review}</p>
               <button onClick={() => handleRemoveReadBook(book)}>
