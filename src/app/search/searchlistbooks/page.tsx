@@ -64,6 +64,8 @@ export default function page() {
           <p>Author name: {selectedBook.author_name}</p>
           <p>Year: {selectedBook.first_publish_year}</p>
           <p>Publisher: {selectedBook.publisher}</p>
+          <p>Description: {selectedBook.description}</p>
+          <p>Genre: {selectedBook.subjects}</p>
           <button onClick={() => handleAddBook(selectedBook)}>
             Lägg till bok till favoritlistan
           </button>

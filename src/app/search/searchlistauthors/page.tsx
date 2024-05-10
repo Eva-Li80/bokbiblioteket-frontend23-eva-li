@@ -35,9 +35,12 @@ export default function page() {
         </div>
       ) : (
         <div className={styles.favoritlist}>
-          {authors.map((autor: Author, index: number) => (
-            <div key={index} onClick={() => handleAuthorClick(autor)}>
-              <h2 className={styles.favoritlistitem}>{autor.name}</h2>
+          {authors.map((author: Author, index: number) => (
+            <div key={index} onClick={() => handleAuthorClick(author)}>
+              <h2 className={styles.favoritlistitem}>
+              <img src={author.imageUrl} alt={author.name} style={{width:100, height: 150}} />
+                {author.name}</h2>
+              
             </div>
           ))}
         </div>

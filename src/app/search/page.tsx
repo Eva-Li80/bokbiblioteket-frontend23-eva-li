@@ -1,30 +1,27 @@
 "use client";
 import React, { useState } from "react";
-import FavoritAuthor from "../components/FavoritAuthor";
-
 import styles from "./search.module.scss";
-import { FavoritBook } from "../components/FavoritBook";
 import Button from "../components/Button";
+import { Search } from "../components/Search";
 
 export default function page() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<"book" | "author">("book");
 
-  const handleSearch = (type: string) => {
+  const handleSearch = (type: "book" | "author") => {
     setSearch(type);
   };
   return (
     <div className={styles.search}>
       <div className={styles.searchbox}>
-        {search === "författarnamn" && <FavoritAuthor />}
-          {search === "title" && <FavoritBook />}
+         <Search type={search}/>
         <div className={styles.btn}>
           <div className={styles.btns}>
             <h1>Sök på..</h1>
-            <Button onClick={() => handleSearch("title")}>
+            <Button onClick={() => handleSearch("book")}>
             Boktitel
             </Button>
             <h1>eller..</h1>
-            <Button onClick={() => handleSearch("författarnamn")}>
+            <Button onClick={() => handleSearch("author")}>
             Författares namn
             </Button>
           </div>
