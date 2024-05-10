@@ -7,6 +7,10 @@ export type Book = {
     publisher: string[];
     first_sentence: [];
     cover_i: number;
+    isbn: string[];
+    language: string[];
+    description: string;
+    subjects: string;
     about?: AboutBook;
   };
   
@@ -20,6 +24,7 @@ export type Book = {
     top_work?: string;
     type: string;
     work_count: number;
+    imageUrl: string;
     _version_?: number;
   }
 
