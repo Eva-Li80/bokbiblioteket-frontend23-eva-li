@@ -51,7 +51,7 @@ export default function page() {
 
   return (
     <div className={styles.favoritlist}>
-      <div className={styles.modal}>
+      <div >
         <Modal isOpen={modalIsOpen} />
       </div>
       {selectedBook ? (
