@@ -2,6 +2,7 @@
 import {
   addToFavoritBooks,
   addToReadBooks,
+  removeFavoritBook,
 } from "@/app/globalredux/feature/books/bookSlice";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
@@ -9,6 +10,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
 import Modal from "@/app/components/Module";
+import StarIcon from "@mui/icons-material/Star";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,39 +19,42 @@ export default function page() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
+ const favBooks = useSelector((state: RootState) => state.book.favoritBooks)
+ const favorite = selectedBook ? favBooks.some((book) => book.key === selectedBook.key): false;
+
   const handleBookClick = (book: Book) => {
-    setSelectedBook(book)
+    setSelectedBook(book);
   };
 
-  const handleAddBook = (book: Book) => {
-    dispatch(addToFavoritBooks(book));
+  const handleAddBook = () => {
+    if (selectedBook) {
+      if (favorite) {
+        dispatch(removeFavoritBook(selectedBook));
+      } else {
+        dispatch(addToFavoritBooks(selectedBook));
+      }
+    }
     setSearch("");
-    
-    setModalIsOpen(true);
-    setTimeout(() => {
-      setModalIsOpen(false);
-      setSelectedBook(book)
-    }, 3000);
-
   };
+  
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
     setSearch("");
     setModalIsOpen(true);
-  
+
     setTimeout(() => {
       setModalIsOpen(false);
-      setSelectedBook(book)
+      setSelectedBook(book);
     }, 3000);
   };
 
   return (
     <div className={styles.favoritlist}>
       <div className={styles.modal}>
-      <Modal isOpen={modalIsOpen}>
-        <h2>Boken har lagts till i din favorit lista</h2>
-      </Modal>
+        <Modal isOpen={modalIsOpen}>
+          <h2>Boken har lagts till i din favorit lista</h2>
+        </Modal>
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
@@ -66,26 +71,38 @@ export default function page() {
           <p>Publisher: {selectedBook.publisher}</p>
           <p>Description: {selectedBook.description}</p>
           <p>Genre: {selectedBook.subjects}</p>
-          <button onClick={() => handleAddBook(selectedBook)}>
-            Lägg till bok till favoritlistan
+
+          <div className={styles.favorits}>
+            
+            <StarIcon
+            className={styles.star}
+              onClick={handleAddBook}
+              color={favorite ? "error" : "inherit"}
+           /> Markera som favorit
+             <button onClick={() => handleAddBookRead(selectedBook)}>
+            Lägg till som läst bok
           </button>
-          <button onClick={() => handleAddBookRead(selectedBook)}>
-            Lägg till bok till lästa böcker
-          </button>
+          </div>
+
+       
         </div>
       ) : (
-        <div >
+        <div>
           <h1>Sökta titlar</h1>
           {books.map((book: Book, index: number) => (
-            <div className={styles.listcontainer} key={index} onClick={() => handleBookClick(book)}>
+            <div
+              className={styles.listcontainer}
+              key={index}
+              onClick={() => handleBookClick(book)}
+            >
               <h2 className={styles.favoritlistitem}>
-              <img
-            src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
-            alt="Omslagsbild"
-            width={60}
-            height={90}
-          />
-              {book.title}
+                <img
+                  src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
+                  alt="Omslagsbild"
+                  width={60}
+                  height={90}
+                />
+                {book.title}
               </h2>
             </div>
           ))}
