@@ -25,11 +25,11 @@ const AuthorDetails = ({ author, style }: AuthorDetailsProps) => {
         <div style={style}>
           <h2>{name}</h2>
           <img src={imageUrl} alt={name} style={{ width: 100, height: 150 }} />
-          <h2>{birth_date}</h2>
-          <h2>{top_subjects}</h2>
-          <h2>{top_work}</h2>
-          <h2>{type}</h2>
-          <h2>{work_count}</h2>
+          <h2>Birthdate: {birth_date}</h2>
+          <h2>Top subjekt:{top_subjects}</h2>
+          <h2>Top work:{top_work}</h2>
+          <h2>Profession:{type}</h2>
+          <h2>Work count: {work_count}</h2>
         </div>
       )}
     </div>

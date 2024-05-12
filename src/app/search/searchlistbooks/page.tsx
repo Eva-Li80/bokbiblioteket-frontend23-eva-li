@@ -59,7 +59,7 @@ export default function page() {
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
-          <BookDetails book={selectedBook} />
+          <BookDetails book={selectedBook} showDescription={true}/>
 
           <div className={styles.favorits}>
             <StarIcon

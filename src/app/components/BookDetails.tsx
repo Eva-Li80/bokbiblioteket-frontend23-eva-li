@@ -4,9 +4,11 @@ import { Book } from "../lib/types";
 type BookDetailsProps = {
   book: Book;
   style?: React.CSSProperties;
+  showDescription: boolean
+
 };
 
-const BookDetails = ({ book, style }: BookDetailsProps) => {
+const BookDetails = ({ book, style, showDescription }: BookDetailsProps) => {
     if(!book){
         return <div>No Books!</div>
     }
@@ -35,7 +37,7 @@ const BookDetails = ({ book, style }: BookDetailsProps) => {
           <p>Author name: {author_name}</p>
           <p>Year: {first_publish_year}</p>
           <p>Publisher: {publisher}</p>
-          <p>Description: {description}</p>
+          {showDescription &&  <p>Description: {description}</p>}
           <p>Genre: {subjects}</p>
         </div>
       )}

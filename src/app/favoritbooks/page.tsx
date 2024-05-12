@@ -24,7 +24,7 @@ const page = () => {
         items={favoriteBooks}
         typeToRender={(book: Book) => (
           <div>
-          <BookDetails key={book.key} book={book} />
+          <BookDetails key={book.key} book={book} showDescription={false}/>
           <button onClick={() => handleRemoveFavoritBook(book)}>Remove</button>
           </div>
         )}
