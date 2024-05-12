@@ -1,5 +1,5 @@
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from "./modules.module.scss"
 
 interface ModalProps {

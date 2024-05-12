@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
 import Modal from "@/app/components/Module";
 import StarIcon from "@mui/icons-material/Star";
+import List from "@/app/components/List";
+import BookDetails from "@/app/components/BookDetails";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -19,8 +21,10 @@ export default function page() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
- const favBooks = useSelector((state: RootState) => state.book.favoritBooks)
- const favorite = selectedBook ? favBooks.some((book) => book.key === selectedBook.key): false;
+  const favBooks = useSelector((state: RootState) => state.book.favoritBooks);
+  const favorite = selectedBook
+    ? favBooks.some((book) => book.key === selectedBook.key)
+    : false;
 
   const handleBookClick = (book: Book) => {
     setSelectedBook(book);
@@ -36,7 +40,6 @@ export default function page() {
     }
     setSearch("");
   };
-  
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
@@ -51,59 +54,43 @@ export default function page() {
 
   return (
     <div className={styles.favoritlist}>
-      <div >
+      <div>
         <Modal isOpen={modalIsOpen} />
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
-          <h2>Title: {selectedBook.title}</h2>
-          <img
-            src={`https://covers.openlibrary.org/b/id/${selectedBook.cover_i}-L.jpg`}
-            alt="Omslagsbild"
-            width={200}
-            height={250}
-          />
-          <p>First sentence: {selectedBook.first_sentence}</p>
-          <p>Author name: {selectedBook.author_name}</p>
-          <p>Year: {selectedBook.first_publish_year}</p>
-          <p>Publisher: {selectedBook.publisher}</p>
-          <p>Description: {selectedBook.description}</p>
-          <p>Genre: {selectedBook.subjects}</p>
+          <BookDetails book={selectedBook} />
 
           <div className={styles.favorits}>
-            
             <StarIcon
-            className={styles.star}
+              className={styles.star}
               onClick={handleAddBook}
               color={favorite ? "error" : "inherit"}
-           /> Mark as favorite
-             <button onClick={() => handleAddBookRead(selectedBook)}>
-            Add book to your list of read books
-          </button>
+            />{" "}
+            Mark as favorite
+            <button onClick={() => handleAddBookRead(selectedBook)}>
+              Add book to your list of read books
+            </button>
           </div>
-
-       
         </div>
       ) : (
         <div>
           <h1>Searched titles</h1>
-          {books.map((book: Book, index: number) => (
-            <div
-              className={styles.listcontainer}
-              key={index}
-              onClick={() => handleBookClick(book)}
-            >
+          <List
+            items={books}
+            onClick={handleBookClick}
+            typeToRender={(books: Book) => (
               <h2 className={styles.favoritlistitem}>
                 <img
-                  src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
+                  src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
                   alt="Omslagsbild"
                   width={60}
                   height={90}
                 />
-                {book.title}
+                {books.title}
               </h2>
-            </div>
-          ))}
+            )}
+          />
         </div>
       )}
     </div>

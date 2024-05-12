@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { AboutBook, Book } from '@/app/lib/types';
+import { AboutBook} from '@/app/lib/types';
 import styles from "./form.module.scss";
 
 interface FormProps {

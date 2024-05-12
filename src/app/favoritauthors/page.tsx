@@ -4,6 +4,8 @@ import { RootState } from "@/app/globalredux/store";
 import { Author } from "@/app/lib/types";
 import styles from "./favoritauthors.module.scss";
 import { removeFavoritAuhor } from "../globalredux/feature/books/authorSlice";
+import List from "../components/List";
+import AuthorDetails from "../components/AuthorDetails";
 
 const page = () => {
   const favoriteAuthors = useSelector((state: RootState) => state.authors.favoritAuthors);
@@ -16,17 +18,15 @@ const page = () => {
   return (
     <div className={styles.favbooks}>
       <h1>Favorit Författare</h1>
-      {favoriteAuthors.map((author: Author, index:number) => (
-        <div key={index} className={styles.listitem}>
-          <h2>{author.name}</h2>
-          <h2>{author.birth_date}</h2>
-          <h2>{author.top_subjects}</h2>
-          <h2>{author.top_work}</h2>
-          <h2>{author.type}</h2>
-          <h2>{author.work_count}</h2>
-          <button onClick={() => handleRemoveFavoritAthur(author)}>X</button>
-        </div>
-      ))}
+      <List
+        items={favoriteAuthors}
+        typeToRender={(author: Author) => (
+          <div>
+          <AuthorDetails key={author.key} author={author} />
+          <button onClick={() => handleRemoveFavoritAthur(author)}>Remove</button>
+          </div>
+        )}
+      />
     </div>
   );
 };
