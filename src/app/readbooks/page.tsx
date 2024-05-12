@@ -15,13 +15,59 @@ const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const readBooks = useSelector((state: RootState) => state.book.readBooks);
   const dispatch = useDispatch();
+  const [averageGrade, setAverageGrade] = useState(0)
+  const [averagePages, setAveragePages] = useState(0)
+  const [authors , setAuthors] = useState<string[]>([])
 
   const countBooks = readBooks.length;
+
   const totalPage = readBooks.reduce(
     (total, book) => total + parseInt(book.about?.pages || "0"),
     0
   );
 
+  const handleAverageGrade = () => {
+    const totalGrade = readBooks.reduce(
+      (total, book) => total + parseInt(book.about?.grade || "0"),
+      0
+    );
+  
+    const averageGrade = totalGrade / countBooks
+    setAverageGrade(averageGrade)
+  }
+
+  const handleAveragePages = () => {
+    const totalPages = readBooks.reduce(
+      (total, book) => total + parseInt(book.about?.pages || "0"),
+      0
+    );
+
+    const averagePages = totalPages / countBooks
+    setAveragePages(averagePages)
+  }
+
+  
+  const handleAuthors = () => {
+    const uniqueAuthors: string[] = []
+    readBooks.forEach((book) => {
+      if(book.author_name){
+        book.author_name.forEach((authors) => {
+          if(!uniqueAuthors.includes(authors)){
+            uniqueAuthors.push(authors)
+          }
+        })
+      }
+    })
+    setAuthors(uniqueAuthors)
+  }
+  
+
+
+
+
+
+
+  
   const handleRemoveReadBook = (book: Book) => {
     dispatch(removeReadBook(book));
   };
@@ -49,6 +95,17 @@ const Page = () => {
         <p>
           You have read {countBooks} book/books & total {totalPage} pages
         </p>
+        <p>{averagePages}</p>
+        <button onClick={handleAveragePages}>average pages</button>
+        <p>{averageGrade}</p>
+        <button onClick={handleAverageGrade}>average grade</button>
+        <p>{authors.map((a) => (
+      <div key={a}>
+        {a}
+      </div>
+        ))}</p>
+        <button onClick={handleAuthors}>Authors in the list</button>
+     
       </div>
 
       <List
