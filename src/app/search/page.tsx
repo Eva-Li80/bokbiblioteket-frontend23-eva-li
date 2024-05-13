@@ -17,11 +17,11 @@ export default function page() {
         <div className={styles.btn}>
           <div className={styles.btns}>
             <h1>Search on...</h1>
-            <Button onClick={() => handleSearch("book")}>
+            <Button onClick={() => handleSearch("book")} classname={styles.button}>
             Book title
             </Button>
             <h1>or..</h1>
-            <Button onClick={() => handleSearch("author")}>
+            <Button onClick={() => handleSearch("author")} classname={styles.button}>
             Authors name
             </Button>
           </div>
