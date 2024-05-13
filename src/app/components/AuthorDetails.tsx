@@ -1,12 +1,12 @@
 import React from "react";
 import { Author } from "../lib/types";
+import styles from "./details.module.scss"
 
 type AuthorDetailsProps = {
   author: Author;
-  style?: React.CSSProperties;
 };
 
-const AuthorDetails = ({ author, style }: AuthorDetailsProps) => {
+const AuthorDetails = ({ author }: AuthorDetailsProps) => {
   if (!author) {
     return <div>No Author!</div>;
   }
@@ -22,14 +22,14 @@ const AuthorDetails = ({ author, style }: AuthorDetailsProps) => {
   return (
     <div>
       {name && (
-        <div style={style}>
+        <div className={styles.details}>
           <h2>{name}</h2>
-          <img src={imageUrl} alt={name} style={{ width: 100, height: 150 }} />
-          <h2>Birthdate: {birth_date}</h2>
-          <h2>Top subjekt:{top_subjects}</h2>
-          <h2>Top work:{top_work}</h2>
-          <h2>Profession:{type}</h2>
-          <h2>Work count: {work_count}</h2>
+          <img src={imageUrl} alt={name} style={{ width: 200, height: 250, border:"2px solid green" }} />
+          <p>Birthdate: {birth_date}</p>
+          <p>Top subjekt:{top_subjects}</p>
+          <p>Top work:{top_work}</p>
+          <p>Profession:{type}</p>
+          <p>Work count: {work_count}</p>
         </div>
       )}
     </div>

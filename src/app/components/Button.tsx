@@ -1,14 +1,14 @@
 import React from 'react'
-import styles from "./button.module.scss"
 
 type ButtonProps = {
     children : React.ReactNode;
     onClick: () => void
+    classname: string;
 }
 
-const Button = ({children, onClick}: ButtonProps) => {
+const Button = ({children, onClick, classname}: ButtonProps) => {
   return (
-    <div className={styles.button} onClick={onClick}>
+    <div className={classname} onClick={onClick}>
       {children}
     </div>
   )
