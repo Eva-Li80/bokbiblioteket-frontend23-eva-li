@@ -14,7 +14,7 @@ import List from "@/app/components/List";
 import BookDetails from "@/app/components/BookDetails";
 import Favorite from "@/app/components/Favorite";
 import Link from "next/link";
-
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -47,6 +47,11 @@ export default function page() {
     setSearch("");
   };
 
+  const handleAddBookRead = (book: Book) => {
+    dispatch(addToReadBooks(book));
+    setSearch("");
+  };
+
   return (
     <div className={styles.favoritlist}>
       <div>
@@ -61,8 +66,16 @@ export default function page() {
               color={favorite ? "error" : "inherit"}
               className={styles.star}
             />
-            <Link href="/favoritbooks">
-              See your list with favorite books
+            <Link href="/favoritbooks" className={styles.link}>
+              Go to favorite books
+            </Link>
+            Save the book to your read books list and see the list..
+            <Link
+              href="/readbooks"
+              className={styles.link}
+              onClick={() => handleAddBookRead(selectedBook)}
+            >
+              Read books <ArrowUpwardIcon />
             </Link>
           </div>
         </div>

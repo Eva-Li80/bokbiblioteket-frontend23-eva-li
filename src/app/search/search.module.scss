@@ -104,7 +104,7 @@
       margin-right: 50px;
     }
 
-    a {
+    link {
       font-size: 20px;
       margin: 20px;
       padding: 10px 20px;
@@ -163,14 +163,14 @@
         cursor: pointer;
       }
 
-      .button {
-        margin-left: 100px;
-        color: $color-red;
-        text-decoration: underline green;
-      }
-      .button:hover{
-        cursor: pointer;
-      }
+      // .button {
+      //   margin-left: 100px;
+      //   color: $color-red;
+      //   text-decoration: underline green;
+      // }
+      // .button:hover{
+      //   cursor: pointer;
+      // }
     }
   }
 }

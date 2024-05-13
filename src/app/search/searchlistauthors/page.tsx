@@ -49,6 +49,7 @@ export default function page() {
     }
     setSearch("");
   };
+  
 
   return (
     <div className={styles.favoritlist}>
