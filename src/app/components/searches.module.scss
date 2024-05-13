@@ -2,14 +2,15 @@
 @import "../styles/variables.scss";
 
 .favorits{
-    @include displayFlexStandard(row);
-   margin-top: 20px;
+    @include displayFlexWrap(row);
+  
    background-image: linear-gradient(to right, $color-green, $color-lightgreen);
     border: 2px solid $color-lightgreen;
     border-radius: 25px;
     height: 300px;
-    width: 600px;
-    margin-bottom: 50px;
+    width:50%;
+  
+    margin: 20px 0px 50px 50px;
 
     input{
         padding: 10px 20px;

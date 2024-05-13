@@ -1,4 +1,6 @@
-
+@import "../styles/variables.scss";
 .details{
-    padding: 20px;
+    padding: 30px;
+    width: 300px;
+    background-color: $color-light;
 }

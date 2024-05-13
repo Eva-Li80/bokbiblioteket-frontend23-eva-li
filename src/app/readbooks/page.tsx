@@ -15,8 +15,8 @@ const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const readBooks = useSelector((state: RootState) => state.book.readBooks);
   const dispatch = useDispatch();
-  const [averageGrade, setAverageGrade] = useState(0);
-  const [averagePages, setAveragePages] = useState(0);
+  const [averageGrade, setAverageGrade] = useState<number | null>(null);
+  const [averagePages, setAveragePages] = useState<number | null>(null);
   const [authors, setAuthors] = useState<string[]>([]);
 
   const countBooks = readBooks.length;
@@ -31,9 +31,13 @@ const Page = () => {
       (total, book) => total + parseInt(book.about?.grade || "0"),
       0
     );
+    if(totalGrade > 0){
+      const averageGrade = totalGrade / countBooks;
+      setAverageGrade(averageGrade);
+    }else{
+      setAverageGrade(null);
+    }
 
-    const averageGrade = totalGrade / countBooks;
-    setAverageGrade(averageGrade);
   };
 
   const handleAveragePages = () => {
@@ -41,9 +45,13 @@ const Page = () => {
       (total, book) => total + parseInt(book.about?.pages || "0"),
       0
     );
-
+  if(totalPage > 0){
     const averagePages = totalPages / countBooks;
     setAveragePages(averagePages);
+  }else{
+    setAveragePages(null)
+  }
+
   };
 
   const handleAuthors = () => {
@@ -83,20 +91,34 @@ const Page = () => {
   return (
     <div className={styles.readbooks}>
       <h1>Read books</h1>
+      <div >
+          <p className={styles.count}>
+            You have read {countBooks} book/books & total {totalPage} pages
+          </p>
+        </div>
       <div className={styles.bookcount}>
-        <p>
-          You have read {countBooks} book/books & total {totalPage} pages
-        </p>
-        <p>{averagePages}</p>
-        <button onClick={handleAveragePages}>average pages</button>
-        <p>{averageGrade}</p>
-        <button onClick={handleAverageGrade}>average grade</button>
-        <p>
-          {authors.map((a) => (
-            <div key={a}>{a}</div>
-          ))}
-        </p>
-        <button onClick={handleAuthors}>Authors in the list</button>
+      <div className={styles.authors}>
+          <button onClick={handleAuthors}>
+            Click to see Authors in the list
+          </button>
+          <p>
+            {authors.map((a) => (
+              <div key={a}>{a}</div>
+            ))}
+          </p>
+        </div>
+      
+        <div className={styles.average}>
+          <p>{averagePages}</p>
+          <button onClick={handleAveragePages}>
+            Click to see average pages
+          </button>
+          <p>{averageGrade}</p>
+          <button onClick={handleAverageGrade}>
+            Click to see average grade
+          </button>
+        </div>
+      
       </div>
 
       <List
@@ -133,6 +155,7 @@ const Page = () => {
             )}
           </div>
         )}
+        className={styles.list}
       />
     </div>
   );

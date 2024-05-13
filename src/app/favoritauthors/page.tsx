@@ -16,17 +16,15 @@ const page = () => {
   };
 
   return (
-    <div className={styles.favbooks}>
+    <div className={styles.favauthor}>
       <h1>Favorit Författare</h1>
       <List
         items={favoriteAuthors}
         typeToRender={(author: Author) => (
-          <div>
-          <AuthorDetails key={author.key} author={author} />
-          <button onClick={() => handleRemoveFavoritAthur(author)}>Remove</button>
+          <div className={styles.detailscontainer}>
+            <AuthorDetails key={author.key} author={author} className={styles.details} onClick={handleRemoveFavoritAthur} />
           </div>
-        )}
-      />
+        )} className={styles.list}      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 @import "../styles/functions.scss";
 @import "../styles/variables.scss";
 
-.favbooks{
+.favauthor{
     @include displayFlexStandard(column);
     background-color: $color-lightgreen;
     min-height: 100vh;
@@ -25,5 +25,25 @@
           background-color: $color-yellow;
           color: $color-blue-dark;
           border: 3px solid$color-blue-dark;
+      }
+      .detailscontainer {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+      }
+      .details {
+        padding: 30px;
+        min-width: 300px;
+        min-height: 400px;
+        background-color: $color-light;
+        border: 2px solid $color-red;
+        border-radius: 5px;
+      }
+    
+      .list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 50px;
       }
 }
