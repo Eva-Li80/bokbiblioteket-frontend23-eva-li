@@ -1,50 +1,29 @@
+
 @import "../styles//functions.scss";
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
-.favbooks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 50px;
-  background-color: $color-lightgreen;
-  min-height: 100vh;
+.favorites {
+  @include favorite;
 
-  h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: $color-white;
-  }
+  .favbook {
+    @include title;
+ }
 
   .listitem {
     @include displayFlexWrap(row);
-    background-color: $color-white;
-    border: 2px solid $color-green;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 25px;
-    h2 {
-      font-size: 25px;
-    }
+    @include item;
+
   }
   .detailscontainer {
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
+    @include container;
   }
   .details {
-    padding: 30px;
-    min-width: 300px;
-    min-height: 400px;
-    background-color: $color-light;
-    border: 2px solid $color-red;
-    border-radius: 5px;
+    @include displayFlexWrap(column);
+    @include detail;
   }
 
   .list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 50px;
+    @include lists;
   }
 }

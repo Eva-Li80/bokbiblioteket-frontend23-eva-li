@@ -2,7 +2,7 @@
 @import "../app//styles/functions.scss";
 
 .main {
-  background-image: url("../../public/assets/opened-book.webp");
+  background-image: linear-gradient(to right, $color-lightgreen, $color-light);
   background-repeat: no-repeat; 
     background-position: right; 
     background-size: cover; 
@@ -30,11 +30,9 @@
   .biblioteket {
     @include displayFlexjustify(row);
     background-image: linear-gradient(to right, $color-white);
-    // border: 2px solid $color-lightgreen;
     border-radius: 25px;
     width: 80vw;
-    // margin: 20px;
-    // padding-top: 50px;
+  
   }
 
   .books {

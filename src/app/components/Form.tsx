@@ -1,3 +1,4 @@
+
 "use client"
 import { useState } from 'react';
 import { AboutBook} from '@/app/lib/types';
@@ -25,7 +26,7 @@ const Form = ({ onSave}: FormProps) => {
     return (
         <div className={styles.form}>
             <article className={styles.items}>
-                <input type="text" value={review} onChange={e => setReview(e.target.value)} placeholder='vad tyckte du....' />
+                <input type="text" value={review} onChange={e => setReview(e.target.value)} placeholder='What did you think....' />
                 <select value={grade} onChange={e => setGrade(e.target.value)}>
                     <option value="">🌟 for the book?</option>
                     <option value="1">🌟</option>
@@ -34,7 +35,7 @@ const Form = ({ onSave}: FormProps) => {
                     <option value="4">🌟🌟🌟🌟</option>
                     <option value="5">🌟🌟🌟🌟🌟</option>
                 </select>
-                <input type="text" value={pages} onChange={e => setPages(e.target.value)} placeholder='sidor..' />
+                <input type="text" value={pages} onChange={e => setPages(e.target.value)} placeholder='pages..' />
                 <button onClick={handleSave}>Save</button>
             </article>
         </div>

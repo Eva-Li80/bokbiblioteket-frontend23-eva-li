@@ -1,6 +1,8 @@
+
 import React from "react";
 import { Book } from "../lib/types";
 import styles from "./details.module.scss"
+import ButtonSmall from "./ButtonSmall";
 
 type BookDetailsProps = {
   book: Book;
@@ -29,7 +31,7 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
   return (
     <div>
       {title && (
-        <div className={className}>
+        <div className={className} style={{fontSize: 20}}>
           <h2>{title}</h2>
           <img
             src={`https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`}
@@ -43,7 +45,7 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
           {showpublisher && <p>Publisher: {publisher}</p>}
           {showDescription &&  <p>Description: {description}</p>}
           {showGenre && <p>Genre: {subjects}</p>}
-         {onClick &&  <button onClick={() => onClick(book)}>remove</button>}
+         {onClick &&  <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>}
         </div>
       )}
     </div>

@@ -1,11 +1,12 @@
 "use client";
 import { RootState } from "@/app/globalredux/store";
 import { Author } from "@/app/lib/types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
 import {
   addToFavoritAuthor,
+  clearSelectedAuthor,
   removeFavoritAuhor,
   selectAuthor,
 } from "@/app/globalredux/feature/books/authorSlice";
@@ -29,6 +30,11 @@ export default function page() {
   const favorite = selectedAuthor
     ? favAuthor.some((author) => author.key === selectedAuthor.key)
     : false;
+
+    useEffect(() => {
+      setSearch("");
+      dispatch(clearSelectedAuthor());
+    }, [dispatch]);
 
   const handleAuthorClick = (author: Author) => {
     dispatch(selectAuthor(author));
@@ -58,7 +64,7 @@ export default function page() {
       </div>
       {selectedAuthor ? (
         <div className={styles.favoritlistdetails}>
-          <AuthorDetails author={selectedAuthor} />
+          <AuthorDetails author={selectedAuthor} className={styles.author} />
           <div className={styles.favorits}>
             <Favorite
               onClick={handleAddToFavorite}
@@ -71,24 +77,22 @@ export default function page() {
           </div>
         </div>
       ) : (
-        <div className={styles.favoritlist}>
-          <h2>Searched authors</h2>
+        <div>
+          <h1>Searched authors</h1>
           <List
-            items={authors}
-            onClick={handleAuthorClick}
-            typeToRender={(author: Author) => (
-              <div>
-                <h2 className={styles.favoritlistitem}>
-                  <img
-                    src={author.imageUrl}
-                    alt={author.name}
-                    style={{ width: 100, height: 150 }}
-                  />
-                  {author.name}
-                </h2>
-              </div>
-            )}
-          />
+              items={authors}
+              onClick={handleAuthorClick}
+              typeToRender={(author: Author) => (
+                <div>
+                  <h2 className={styles.favoritlistitem}>
+                    <img
+                      src={author.imageUrl}
+                      alt={author.name}
+                      style={{ width: 100, height: 150 }} />
+                    {author.name}
+                  </h2>
+                </div>
+              )} className={styles.list}          />
         </div>
       )}
     </div>

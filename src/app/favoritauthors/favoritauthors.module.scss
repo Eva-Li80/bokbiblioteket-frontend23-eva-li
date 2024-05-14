@@ -1,49 +1,30 @@
+
+
 @import "../styles/functions.scss";
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
-.favauthor{
-    @include displayFlexStandard(column);
-    background-color: $color-lightgreen;
-    min-height: 100vh;
+.favorites {
+  @include favorite;
 
-    h1{
-        font-size: 30px;
-        font-weight: bold;
-      }
+  .favauthor {
+    @include title;
+  }
 
-      .listitem{
-        @include displayFlexStandard(row);
+  .listitem {
+    @include displayFlexWrap(row);
+    @include item;
 
-        h2{
-            font-size: 25px;
-        }
-      }
-  
-      button{
-          padding: 10px;
-          margin-left: 15px;
-          background-color: $color-yellow;
-          color: $color-blue-dark;
-          border: 3px solid$color-blue-dark;
-      }
-      .detailscontainer {
-        display: flex;
-        flex-direction: row;
-        margin: 20px;
-      }
-      .details {
-        padding: 30px;
-        min-width: 300px;
-        min-height: 400px;
-        background-color: $color-light;
-        border: 2px solid $color-red;
-        border-radius: 5px;
-      }
-    
-      .list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 50px;
-      }
+  }
+  .detailscontainer {
+    @include container;
+  }
+  .details {
+    @include displayFlexWrap(column);
+    @include detail;
+  }
+
+  .list {
+    @include lists;
+  }
 }

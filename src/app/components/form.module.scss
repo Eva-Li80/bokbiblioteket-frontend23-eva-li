@@ -1,16 +1,17 @@
+
 @import "../styles//functions.scss";
 @import "../styles/variables.scss";
 .form{
     
     background-color: $color-beige;
-    padding: 20px;
+    padding: 50px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 
     .items{
-
         input{
             padding: 5px;
+            color: $color-green;
         }
 
         select{
@@ -20,7 +21,7 @@
 
         button{
             padding: 5px;
-            margin-left: 15px;
+            margin: 15px 0 0 5px;
             background-color: $color-yellow;
             color: $color-blue-dark;
             border: 3px solid$color-blue-dark;

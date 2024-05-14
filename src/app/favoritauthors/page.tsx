@@ -1,3 +1,4 @@
+
 "use client"
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
@@ -16,8 +17,8 @@ const page = () => {
   };
 
   return (
-    <div className={styles.favauthor}>
-      <h1>Favorit Författare</h1>
+    <div className={styles.favorites}>
+      <h1 className={styles.favauthor}>Favorite Authors</h1>
       <List
         items={favoriteAuthors}
         typeToRender={(author: Author) => (
@@ -28,5 +29,4 @@ const page = () => {
     </div>
   );
 };
-
 export default page;

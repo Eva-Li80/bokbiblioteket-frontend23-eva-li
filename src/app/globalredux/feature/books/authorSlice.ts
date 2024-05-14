@@ -1,3 +1,4 @@
+
 "use client";
 import { Author } from "@/app/lib/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
@@ -24,6 +25,9 @@ const authorSlice = createSlice({
     selectAuthor(state, action: PayloadAction<Author | null>){
       state.selectedAuthor = action.payload
     },
+    clearSelectedAuthor(state) {
+      state.selectedAuthor = null;
+    },
     addToFavoritAuthor(state, action: PayloadAction<Author>) {
       state.favoritAuthors.push(action.payload);
     },
@@ -37,7 +41,6 @@ const authorSlice = createSlice({
   },
 });
 
-export const { setAuthors, addToFavoritAuthor, selectAuthor, removeFavoritAuhor } = authorSlice.actions;
+export const { setAuthors, addToFavoritAuthor, selectAuthor, removeFavoritAuhor ,clearSelectedAuthor} = authorSlice.actions;
 export const authorSliceReducer = authorSlice.reducer;
-
 

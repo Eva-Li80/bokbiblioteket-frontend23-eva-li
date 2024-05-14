@@ -1,3 +1,4 @@
+
 "use client";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -98,6 +99,7 @@ const Page = () => {
         </div>
       <div className={styles.bookcount}>
         <h2>Here you kan get some info about your read books</h2>
+        <p>Fill in the form for the books and you can se more info..</p>
       <div className={styles.authors}>
           <button onClick={handleAuthors}>
             Click to see Authors in the list
