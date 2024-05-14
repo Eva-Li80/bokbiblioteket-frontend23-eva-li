@@ -40,9 +40,11 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
           />
           <p>First sentence: {first_sentence}</p>
           {subjects && author_name.length > 0 && (
-          <p>Genre: {author_name[0]}</p>)}
+          <p>Author: {author_name[0]}</p>)}
           <p>Year: {first_publish_year}</p>
-          {showpublisher && <p>Publisher: {publisher}</p>}
+          {showpublisher && publisher && publisher.length > 0 && (
+            <p>Publisher: {publisher}</p>
+          )}
           {showDescription && description && <p>Description: {description}</p>}
           {showGenre && subjects && subjects.length > 0 && (
           <p>Genre: {subjects[0]}</p>)}
