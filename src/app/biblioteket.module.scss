@@ -2,7 +2,10 @@
 @import "../app//styles/functions.scss";
 
 .main {
-background-color: #586e5d;
+  background-image: url("../../public/assets/opened-book.webp");
+  background-repeat: no-repeat; 
+    background-position: right; 
+    background-size: cover; 
   
   display: flex;
   flex-direction: column;
@@ -16,7 +19,7 @@ background-color: #586e5d;
     text-decoration: underline;
     background: linear-gradient(
       to right, 
-  $color-pink,
+  $color-light,
   $color-light,
   $color-white,
     );
@@ -26,12 +29,12 @@ background-color: #586e5d;
 
   .biblioteket {
     @include displayFlexjustify(row);
-    background-color: #39473c;
-    border: 2px solid #FCA2A2;
+    background-image: linear-gradient(to right, $color-white);
+    // border: 2px solid $color-lightgreen;
     border-radius: 25px;
     width: 80vw;
-    margin: 20px;
-    padding-top: 50px;
+    // margin: 20px;
+    // padding-top: 50px;
   }
 
   .books {

@@ -2,16 +2,16 @@
 @import "../styles/functions.scss";
 
 .card{
-    background-color: $color-beigedark;
+    background-image: linear-gradient(to right, $color-beigedark, $color-light);
     @include displayFlexWrap(row);
     width: 280px;
     height: 400px;
     margin: 40px;
     padding: 20px;
-    border: 4px solid #91B39E;
+    border: 4px solid $color-lightgreen;
 
     .title{
-        color: $color-white;
+        color: white;
         padding: 10px;
     }
 }

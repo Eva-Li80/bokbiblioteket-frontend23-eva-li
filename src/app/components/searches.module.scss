@@ -4,27 +4,40 @@
 .favorits{
     @include displayFlexWrap(row);
   
-   background-image: linear-gradient(to right, $color-green, $color-lightgreen);
-    border: 2px solid $color-lightgreen;
-    border-radius: 25px;
-    height: 300px;
+//    background-image: linear-gradient(to right, $color-beigedark, $color-light);
+    // border: 1px solid $color-light;
+    // border-radius: 25px;
+    height: 200px;
     width:50%;
   
     margin: 20px 0px 50px 50px;
 
     input{
-        padding: 10px 20px;
-        border: 2px solid $color-blue;
+        padding: 20px 20px;
+        border: 1px solid $color-light;
+        border-radius: 10px;
+        background-color: $color-white
     }
 
     a{
-        font-size: 20px;
-            margin: 20px;
-            padding: 10px 20px;
-            color: $color-green;
-            background-color: #FFE7B9;
-            border: 3px solid $color-pink;
-            border-radius: 20px;
-            margin-left: 50px;
+        // background-image: linear-gradient(to right, $color-green, $color-lightgreen);
+        color: $color-white;
+        padding: 10px 20px;
+        border: 2px solid $color-light;
+        border-radius: 10px;
+        margin: 0px 20px 0px 0px;
+        font-size: 25px;
+        font-weight: bold;
+            margin-left: 75px;
+    }
+
+    a:hover{
+        cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      $color-lightgreen,
+      $color-light
+    );
+    color: $color-green;
     }
 }
