@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { AboutBook} from '@/app/lib/types';
 import styles from "./form.module.scss";
+import ButtonSmall from '../Buttons/ButtonSmall';
+import ButtonMedium from '../Buttons/ButtonMedium';
 
 type FormProps =  {
     onSave: (formData: AboutBook) => void;
@@ -35,7 +37,7 @@ const Form = ({ onSave}: FormProps) => {
                     <option value="5">🌟🌟🌟🌟🌟</option>
                 </select>
                 <input type="text" value={pages} onChange={e => setPages(e.target.value)} placeholder='pages..' />
-                <button onClick={handleSave}>Save</button>
+                <ButtonSmall onClick={handleSave}>Save</ButtonSmall>
             </article>
         </div>
     );

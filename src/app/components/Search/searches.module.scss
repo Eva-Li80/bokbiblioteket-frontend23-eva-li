@@ -1,5 +1,6 @@
 @import "../../styles//functions.scss";
 @import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .favorits {
   @include displayFlexWrap(row);
@@ -10,16 +11,14 @@
 
   input {
     padding: 20px 20px;
-    border: 1px solid $color-light;
-    border-radius: 10px;
+  @include border($color-light);
     background-color: $color-white;
   }
 
   a {
     color: $color-white;
     padding: 10px 20px;
-    border: 2px solid $color-light;
-    border-radius: 10px;
+    @include border($color-light);
     margin: 0px 20px 0px 0px;
     font-size: 25px;
     font-weight: bold;

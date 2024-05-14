@@ -1,5 +1,6 @@
 @import "../styles//functions.scss";
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 .readbooks {
  @include displayFlexAlign(column);
@@ -28,8 +29,7 @@
 
       button{
         background-color: $color-lightgreen;
-        border: 2px solid $color-green;
-        border-radius: 10px;
+       @include border($color-green);
         padding: 10px;
       }
     }
@@ -40,8 +40,7 @@
 
       button{
         background-color: $color-lightgreen;
-        border: 2px solid $color-green;
-        border-radius: 10px;
+        @include border($color-green);
         padding: 10px;
       }
     }

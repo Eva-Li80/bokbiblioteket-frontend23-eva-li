@@ -1,10 +1,8 @@
-@import "../../styles//variables.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/functions.scss";
 .header{
     background-color: $color-gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  @include displayFlexWrap(column);
     height: 16vh;
     background-image: url("../../../../public/assets/books-4515917_1280.jpg");
     background-size: cover;

@@ -14,7 +14,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
-    @include border();
+    @include border($color-light);
     min-width: 80vw;
     height: 80vh;
     margin: 50px 0;
@@ -79,8 +79,7 @@
       padding: 10px 20px;
       background-color: $color-blue;
       color: $color-white;
-      border: 5px solid $color-red;
-      border-radius: 20px;
+      @include border($color-red);
       margin-right: 50px;
       @include displayFlexStandard(row);
     }
@@ -134,10 +133,7 @@
 
       .favbook,
       .favread {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+       @include displayFlexStandard(row)
       }
 
       .favread {

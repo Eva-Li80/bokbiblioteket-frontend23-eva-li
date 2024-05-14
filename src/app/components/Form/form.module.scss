@@ -11,19 +11,12 @@
         input{
             padding: 5px;
             color: $color-green;
+            margin: 15px 0 0 5px;
         }
 
         select{
             padding: 8px;
             margin: 0 10px;
-        }
-
-        button{
-            padding: 5px;
-            margin: 15px 0 0 5px;
-            background-color: $color-yellow;
-            color: $color-blue-dark;
-            border: 3px solid$color-blue-dark;
         }
     }
 }

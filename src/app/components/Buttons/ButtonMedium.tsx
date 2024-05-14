@@ -8,7 +8,7 @@ type ButtonProps = {
 
 const ButtonMedium = ({children, onClick}: ButtonProps) => {
   return (
-    <div className={styles.buttonmedium} onClick={onClick}>
+    <div className={styles.buttonmedium } onClick={onClick}>
       {children}
     </div>
   )
