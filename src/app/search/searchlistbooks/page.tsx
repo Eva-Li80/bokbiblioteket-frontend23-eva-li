@@ -15,13 +15,15 @@ import BookDetails from "@/app/components/Details/BookDetails";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import openModal from "../../components/Module/openModule"
+
+
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   const favBooks = useSelector((state: RootState) => state.book.favoritBooks);
   const favorite = selectedBook
     ? favBooks.some((book) => book.key === selectedBook.key)
@@ -37,11 +39,7 @@ export default function page() {
         dispatch(removeFavoritBook(selectedBook));
       } else {
         dispatch(addToFavoritBooks(selectedBook));
-        setModalIsOpen(true);
-
-        setTimeout(() => {
-          setModalIsOpen(false);
-        }, 3000);
+       openModal(setModalIsOpen, 3000)
       }
     }
     setSearch("");

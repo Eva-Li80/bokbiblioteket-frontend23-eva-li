@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { AboutBook} from '@/app/lib/types';
 import styles from "./form.module.scss";
 
-interface FormProps {
+type FormProps =  {
     onSave: (formData: AboutBook) => void;
 }
 

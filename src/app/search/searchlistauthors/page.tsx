@@ -15,6 +15,7 @@ import AuthorDetails from "@/app/components/Details/AuthorDetails";
 import Modal from "@/app/components/Module/Module";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
+import openModal from "@/app/components/Module/openModule";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -31,10 +32,10 @@ export default function page() {
     ? favAuthor.some((author) => author.key === selectedAuthor.key)
     : false;
 
-    useEffect(() => {
-      setSearch("");
-      dispatch(clearSelectedAuthor());
-    }, [dispatch]);
+  useEffect(() => {
+    setSearch("");
+    dispatch(clearSelectedAuthor());
+  }, [dispatch]);
 
   const handleAuthorClick = (author: Author) => {
     dispatch(selectAuthor(author));
@@ -46,16 +47,11 @@ export default function page() {
         dispatch(removeFavoritAuhor(selectedAuthor));
       } else {
         dispatch(addToFavoritAuthor(selectedAuthor));
-        setModalIsOpen(true);
-
-        setTimeout(() => {
-          setModalIsOpen(false);
-        }, 3000);
+        openModal(setModalIsOpen, 3000);
       }
     }
     setSearch("");
   };
-  
 
   return (
     <div className={styles.favoritlist}>
@@ -80,19 +76,22 @@ export default function page() {
         <div>
           <h1>Searched authors</h1>
           <List
-              items={authors}
-              onClick={handleAuthorClick}
-              typeToRender={(author: Author) => (
-                <div>
-                  <h2 className={styles.favoritlistitem}>
-                    <img
-                      src={author.imageUrl}
-                      alt={author.name}
-                      style={{ width: 100, height: 150 }} />
-                    {author.name}
-                  </h2>
-                </div>
-              )} className={styles.list}          />
+            items={authors}
+            onClick={handleAuthorClick}
+            typeToRender={(author: Author) => (
+              <div>
+                <h2 className={styles.favoritlistitem}>
+                  <img
+                    src={author.imageUrl}
+                    alt={author.name}
+                    style={{ width: 100, height: 150 }}
+                  />
+                  {author.name}
+                </h2>
+              </div>
+            )}
+            className={styles.list}
+          />
         </div>
       )}
     </div>

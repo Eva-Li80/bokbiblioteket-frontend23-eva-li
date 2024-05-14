@@ -5,7 +5,7 @@ interface ModalProps {
   isOpen: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen}) => {
+const Modal = ({ isOpen}: ModalProps) => {
   return (
     <div style={{ display: isOpen ? 'block' : 'none'}} className={styles.modules}>
       <div className={styles.text}>
