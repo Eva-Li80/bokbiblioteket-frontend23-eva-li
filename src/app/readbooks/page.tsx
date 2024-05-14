@@ -31,13 +31,12 @@ const Page = () => {
       (total, book) => total + parseInt(book.about?.grade || "0"),
       0
     );
-    if(totalGrade > 0){
+    if (totalGrade > 0) {
       const averageGrade = totalGrade / countBooks;
       setAverageGrade(averageGrade);
-    }else{
+    } else {
       setAverageGrade(null);
     }
-
   };
 
   const handleAveragePages = () => {
@@ -45,13 +44,12 @@ const Page = () => {
       (total, book) => total + parseInt(book.about?.pages || "0"),
       0
     );
-  if(totalPage > 0){
-    const averagePages = totalPages / countBooks;
-    setAveragePages(averagePages);
-  }else{
-    setAveragePages(null)
-  }
-
+    if (totalPage > 0) {
+      const averagePages = totalPages / countBooks;
+      setAveragePages(averagePages);
+    } else {
+      setAveragePages(null);
+    }
   };
 
   const handleAuthors = () => {
@@ -91,15 +89,15 @@ const Page = () => {
   return (
     <div className={styles.readbooks}>
       <h1>Read books</h1>
-      <div >
-          <p className={styles.count}>
-            You have read {countBooks} book/books & total {totalPage} pages
-          </p>
-        </div>
+      <div>
+        <p className={styles.count}>
+          You have read {countBooks} book/books & total {totalPage} pages
+        </p>
+      </div>
       <div className={styles.bookcount}>
         <h2>Here you kan get some info about your read books</h2>
         <p>Fill in the form for the books and you can se more info..</p>
-      <div className={styles.authors}>
+        <div className={styles.authors}>
           <button onClick={handleAuthors}>
             Click to see Authors in the list
           </button>
@@ -109,7 +107,7 @@ const Page = () => {
             ))}
           </p>
         </div>
-      
+
         <div className={styles.average}>
           <p>{averagePages}</p>
           <button onClick={handleAveragePages}>
@@ -120,7 +118,6 @@ const Page = () => {
             Click to see average grade
           </button>
         </div>
-      
       </div>
 
       <List

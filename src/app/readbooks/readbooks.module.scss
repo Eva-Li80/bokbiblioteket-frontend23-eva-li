@@ -13,7 +13,8 @@
 
   .bookcount {
    @include displayFlexStandard(column);
-    background-color: #39473c;
+   background-color: $color-lightgreen;
+    color: $color-light;
     border: 2px solid #fca2a2;
     border-radius: 25px;
     width: 33vw;
