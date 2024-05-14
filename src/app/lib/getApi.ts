@@ -36,8 +36,8 @@ export async function fetchBooksByTitle(title: string): Promise<Book[]> {
         const bookData = await response.json();
         return {
           ...book,
-          description: JSON.stringify(bookData.description),
-          subjects: JSON.stringify(bookData.subjects),
+          description: typeof bookData.description === 'object' ? bookData.description.value : bookData.description,
+          subjects: bookData.subjects ? bookData.subjects : [],
                 };
       } catch (error) {
         console.error("Error fetching book data:", error);

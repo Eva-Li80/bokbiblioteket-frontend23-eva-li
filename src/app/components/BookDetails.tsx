@@ -1,5 +1,6 @@
 import React from "react";
 import { Book } from "../lib/types";
+import styles from "./details.module.scss"
 import ButtonSmall from "./ButtonSmall";
 
 type BookDetailsProps = {
@@ -7,21 +8,15 @@ type BookDetailsProps = {
   showDescription: boolean;
   showpublisher: boolean;
   showGenre: boolean;
-  className: string;
+className: string;
   onClick?: (book: Book) => void;
+
 };
 
-const BookDetails = ({
-  book,
-  showDescription,
-  showpublisher,
-  showGenre,
-  className,
-  onClick,
-}: BookDetailsProps) => {
-  if (!book) {
-    return <div>No Books!</div>;
-  }
+const BookDetails = ({ book, showDescription , showpublisher, showGenre, className , onClick}: BookDetailsProps) => {
+    if(!book){
+        return <div>No Books!</div>
+    }
   const {
     title,
     cover_i,
@@ -35,7 +30,7 @@ const BookDetails = ({
   return (
     <div>
       {title && (
-        <div className={className} style={{ fontSize: 20 }}>
+        <div className={className}>
           <h2>{title}</h2>
           <img
             src={`https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`}
@@ -44,14 +39,14 @@ const BookDetails = ({
             height={250}
           />
           <p>First sentence: {first_sentence}</p>
-          <p>Author name: {author_name}</p>
+          {subjects && author_name.length > 0 && (
+          <p>Genre: {author_name[0]}</p>)}
           <p>Year: {first_publish_year}</p>
           {showpublisher && <p>Publisher: {publisher}</p>}
-          {showDescription && <p>Description: {description}</p>}
-          {showGenre && <p>Genre: {subjects}</p>}
-          {onClick && (
-            <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>
-          )}
+          {showDescription && description && <p>Description: {description}</p>}
+          {showGenre && subjects && subjects.length > 0 && (
+          <p>Genre: {subjects[0]}</p>)}
+         {onClick &&  <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>}
         </div>
       )}
     </div>
@@ -59,3 +54,4 @@ const BookDetails = ({
 };
 
 export default BookDetails;
+

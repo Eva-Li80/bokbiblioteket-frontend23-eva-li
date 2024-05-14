@@ -10,7 +10,7 @@ export type Book = {
   isbn: string[];
   language: string[];
   description: string;
-  subjects: string;
+  subjects: string [];
   about?: AboutBook;
 };
 
