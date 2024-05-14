@@ -14,12 +14,12 @@ export default async function Home() {
       <ul className={styles.biblioteket}>
         {books.map((book: Book, index: number) => (
           <li key={index} className={styles.books}>
-            <Card title={book.title}>
+            <Card>
               <img
                 src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
                 alt="Omslagsbild"
-                width={180}
-                height={230}
+                width={200}
+                height={250}
               />
             </Card>
           </li>

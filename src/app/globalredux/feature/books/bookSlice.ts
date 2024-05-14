@@ -1,22 +1,22 @@
 import { AboutBook, Book } from "@/app/lib/types";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export const fetchBooks = createAsyncThunk<Book[], string>(
-  "books/fetchBooksByTitle",
-  async (title: string, { rejectWithValue }) => {
-    try {
-      const response = await fetch(`https://openlibrary.org/search.json?title=${title}`);
-      if (!response.ok) {
-        throw new Error("Network response was not ok.");
-      }
-      const data = await response.json();
-      return data.docs;
-    } catch (error) {
-      console.error("Error fetching books:", error);
-      return rejectWithValue(error as Error);
-    }
-  }
-);
+// export const fetchBooks = createAsyncThunk<Book[], string>(
+//   "books/fetchBooksByTitle",
+//   async (title: string, { rejectWithValue }) => {
+//     try {
+//       const response = await fetch(`https://openlibrary.org/search.json?title=${title}`);
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok.");
+//       }
+//       const data = await response.json();
+//       return data.docs;
+//     } catch (error) {
+//       console.error("Error fetching books:", error);
+//       return rejectWithValue(error as Error);
+//     }
+//   }
+// );
 
 
 type BookState = {
@@ -77,19 +77,19 @@ const bookSlice = createSlice({
     },
     
   },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchBooks.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.books = action.payload;
-      })
-      .addCase(fetchBooks.rejected, (state) => {
-        state.status = "failed";
-      });
-  },
+  // extraReducers(builder) {
+  //   builder
+  //     .addCase(fetchBooks.pending, (state) => {
+  //       state.status = "loading";
+  //     })
+  //     .addCase(fetchBooks.fulfilled, (state, action) => {
+  //       state.status = "succeeded";
+  //       state.books = action.payload;
+  //     })
+  //     .addCase(fetchBooks.rejected, (state) => {
+  //       state.status = "failed";
+  //     });
+  //},
 });
 
 export const { setBooks, addToFavoritBooks, removeFavoritBook, addToReadBooks, removeReadBook, addInfoAboutBook} = bookSlice.actions;

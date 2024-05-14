@@ -2,9 +2,7 @@
 @import "../styles/variables.scss";
 
 .readbooks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ @include displayFlexAlign(column);
   background-color: #586e5d;
   min-height: 100vh;
   color: $color-white;
@@ -14,10 +12,7 @@
     }
 
   .bookcount {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   @include displayFlexStandard(column);
     background-color: #39473c;
     border: 2px solid #fca2a2;
     border-radius: 25px;
@@ -25,13 +20,8 @@
     margin: 20px;
     padding-top: 50px;
 
- 
-
     .average {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-     
+      @include displayFlexAlign(row);
       padding: 10px;
       margin: 10px;
 
@@ -72,10 +62,7 @@
   }
 
   .listitem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   @include displayFlexStandard(column);
     background-color: #39473c;
     border: 2px solid #fca2a2;
     border-radius: 25px;

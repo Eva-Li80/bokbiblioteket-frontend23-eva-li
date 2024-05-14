@@ -1,4 +1,3 @@
-
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
@@ -19,20 +18,26 @@ const page = () => {
   };
 
   return (
-  
     <div className={styles.favorites}>
       <h1 className={styles.favbook}>Favorite books</h1>
       <List
         items={favoriteBooks}
         typeToRender={(book: Book) => (
-          <div
-            className={styles.detailscontainer}>
-            <BookDetails key={book.key} book={book} showDescription={false} showpublisher={false} showGenre={false} onClick={() => handleRemoveFavoritBook(book)} className={styles.details} />
+          <div className={styles.detailscontainer}>
+            <BookDetails
+              key={book.key}
+              book={book}
+              showDescription={false}
+              showpublisher={false}
+              showGenre={false}
+              onClick={() => handleRemoveFavoritBook(book)}
+              className={styles.details}
+            />
           </div>
-        )} className={styles.list}      />
-      </div>
-
-   
+        )}
+        className={styles.list}
+      />
+    </div>
   );
 };
 

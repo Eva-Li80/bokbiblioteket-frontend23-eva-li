@@ -1,8 +1,5 @@
-
-
 import React from "react";
 import { Author } from "../lib/types";
-import styles from "./details.module.scss"
 import ButtonSmall from "./ButtonSmall";
 
 type AuthorDetailsProps = {

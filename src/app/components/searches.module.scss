@@ -1,43 +1,38 @@
 @import "../styles//functions.scss";
 @import "../styles/variables.scss";
 
-.favorits{
-    @include displayFlexWrap(row);
-  
-//    background-image: linear-gradient(to right, $color-beigedark, $color-light);
-    // border: 1px solid $color-light;
-    // border-radius: 25px;
-    height: 200px;
-    width:50%;
-  
-    margin: 20px 0px 50px 50px;
+.favorits {
+  @include displayFlexWrap(row);
+  height: 200px;
+  width: 50%;
 
-    input{
-        padding: 20px 20px;
-        border: 1px solid $color-light;
-        border-radius: 10px;
-        background-color: $color-white
-    }
+  margin: 20px 0px 50px 50px;
 
-    a{
-        // background-image: linear-gradient(to right, $color-green, $color-lightgreen);
-        color: $color-white;
-        padding: 10px 20px;
-        border: 2px solid $color-light;
-        border-radius: 10px;
-        margin: 0px 20px 0px 0px;
-        font-size: 25px;
-        font-weight: bold;
-            margin-left: 75px;
-    }
+  input {
+    padding: 20px 20px;
+    border: 1px solid $color-light;
+    border-radius: 10px;
+    background-color: $color-white;
+  }
 
-    a:hover{
-        cursor: pointer;
+  a {
+    color: $color-white;
+    padding: 10px 20px;
+    border: 2px solid $color-light;
+    border-radius: 10px;
+    margin: 0px 20px 0px 0px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 75px;
+  }
+
+  a:hover {
+    cursor: pointer;
     background-image: linear-gradient(
       to right,
       $color-lightgreen,
       $color-light
     );
     color: $color-green;
-    }
+  }
 }

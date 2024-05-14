@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styles from "./card.module.scss";
 
 type CardProps = {
-  title: string;
+  title?: string;
   children: ReactNode;
 };
 

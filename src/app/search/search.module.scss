@@ -36,9 +36,7 @@
 
 .favoritlist {
   padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ @include displayFlexAlign(column);
   background-color: $color-lightgreen;
   min-height: 100vh;
 
