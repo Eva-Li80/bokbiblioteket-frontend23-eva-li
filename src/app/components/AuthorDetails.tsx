@@ -4,9 +4,11 @@ import styles from "./details.module.scss"
 
 type AuthorDetailsProps = {
   author: Author;
+  onClick?: (book: Author) => void;
+  className: string;
 };
 
-const AuthorDetails = ({ author }: AuthorDetailsProps) => {
+const AuthorDetails = ({ author, onClick , className}: AuthorDetailsProps) => {
   if (!author) {
     return <div>No Author!</div>;
   }
@@ -22,7 +24,7 @@ const AuthorDetails = ({ author }: AuthorDetailsProps) => {
   return (
     <div>
       {name && (
-        <div className={styles.details}>
+        <div className={className}>
           <h2>{name}</h2>
           <img src={imageUrl} alt={name} style={{ width: 200, height: 250, border:"2px solid green" }} />
           <p>Birthdate: {birth_date}</p>
@@ -30,6 +32,7 @@ const AuthorDetails = ({ author }: AuthorDetailsProps) => {
           <p>Top work:{top_work}</p>
           <p>Profession:{type}</p>
           <p>Work count: {work_count}</p>
+          {onClick &&  <button onClick={() => onClick(author)}>remove</button>}
         </div>
       )}
     </div>

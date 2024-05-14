@@ -59,7 +59,7 @@ export default function page() {
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
-          <BookDetails book={selectedBook} showDescription={true} />
+          <BookDetails book={selectedBook} showDescription={true} showpublisher={true} showGenre={true} className={styles.button} />
           <div className={styles.favorits}>
             <Favorite
               onClick={handleAddToFavorite}
@@ -83,20 +83,18 @@ export default function page() {
         <div>
           <h1>Searched titles</h1>
           <List
-            items={books}
-            onClick={handleBookClick}
-            typeToRender={(books: Book) => (
-              <h2 className={styles.favoritlistitem}>
-                <img
-                  src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
-                  alt="Omslagsbild"
-                  width={60}
-                  height={90}
-                />
-                {books.title}
-              </h2>
-            )}
-          />
+              items={books}
+              onClick={handleBookClick}
+              typeToRender={(books: Book) => (
+                <h2 className={styles.favoritlistitem}>
+                  <img
+                    src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
+                    alt="Omslagsbild"
+                    width={60}
+                    height={90} />
+                  {books.title}
+                </h2>
+              )} className={styles.list}          />
         </div>
       )}
     </div>

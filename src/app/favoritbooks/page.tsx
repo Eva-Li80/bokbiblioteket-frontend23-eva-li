@@ -18,18 +18,20 @@ const page = () => {
   };
 
   return (
+  
     <div className={styles.favbooks}>
       <h1>Favorit Böcker</h1>
       <List
         items={favoriteBooks}
         typeToRender={(book: Book) => (
-          <div>
-          <BookDetails key={book.key} book={book} showDescription={false}/>
-          <button onClick={() => handleRemoveFavoritBook(book)}>Remove</button>
+          <div
+            className={styles.detailscontainer}>
+            <BookDetails key={book.key} book={book} showDescription={false} showpublisher={false} showGenre={false} onClick={() => handleRemoveFavoritBook(book)} className={styles.details} />
           </div>
-        )}
-      />
-    </div>
+        )} className={styles.list}      />
+      </div>
+
+   
   );
 };
 

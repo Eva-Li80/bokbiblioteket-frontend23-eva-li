@@ -1,0 +1,44 @@
+@import "../styles/variables.scss";
+
+.buttonsmall{
+    margin: 40px;
+    border: 3px solid #FFE7B9;
+ 
+    padding: 15px 30px;
+    font-size: 25px;
+    background-color: #B66666;
+    color: #FFE7B9;
+ 
+    
+    border-radius: 10px;
+
+}
+
+.buttonsmall:hover {
+    cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      $color-lightgreen,
+      $color-light
+    );
+  }
+
+.buttonmedium{
+    // background-image: linear-gradient(to right, $color-lightgreen, $color-light);
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid $color-light;
+    border-radius: 10px;
+    margin: 0px 20px 0px 0px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.buttonmedium:hover {
+    cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      $color-lightgreen,
+      $color-light
+    );
+  }
