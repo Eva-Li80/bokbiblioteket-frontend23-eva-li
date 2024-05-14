@@ -99,8 +99,7 @@
   .favoritlistdetails {
     @include displayFlexWrap(column);
     background-color: $color-white;
-    border: 5px solid $color-green;
-    border-radius: 25px;
+    @include borderbig($color-green);
     padding: 20px 0px;
     margin-top: 50px;
     min-width: 60vw;

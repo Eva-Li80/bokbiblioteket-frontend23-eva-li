@@ -3,21 +3,20 @@
 @import "../styles/mixins.scss";
 
 .readbooks {
- @include displayFlexAlign(column);
+  @include displayFlexAlign(column);
   background-color: #586e5d;
   min-height: 100vh;
   color: $color-white;
 
-  .count{
+  .count {
     font-size: 25px;
-    }
+  }
 
   .bookcount {
-   @include displayFlexStandard(column);
-   background-color: $color-lightgreen;
+    @include displayFlexStandard(column);
+    background-color: $color-lightgreen;
     color: $color-light;
-    border: 2px solid #fca2a2;
-    border-radius: 25px;
+    @include borderbig($color-pink);
     width: 33vw;
     margin: 20px;
     padding-top: 50px;
@@ -50,10 +49,9 @@
   }
 
   .listitem {
-   @include displayFlexStandard(column);
+    @include displayFlexStandard(column);
     background-color: #39473c;
-    border: 2px solid #fca2a2;
-    border-radius: 25px;
+    @include borderbig($color-pink);
     width: 33vw;
     margin: 20px;
     padding-top: 50px;
