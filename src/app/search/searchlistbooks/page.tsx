@@ -14,7 +14,7 @@ import List from "@/app/components/List";
 import BookDetails from "@/app/components/BookDetails";
 import Favorite from "@/app/components/Favorite";
 import Link from "next/link";
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -59,42 +59,55 @@ export default function page() {
       </div>
       {selectedBook ? (
         <div className={styles.favoritlistdetails}>
-          <BookDetails book={selectedBook} showDescription={true} showpublisher={true} showGenre={true} className={styles.button} />
+          <BookDetails
+            book={selectedBook}
+            showDescription={true}
+            showpublisher={true}
+            showGenre={true}
+            className={styles.button}
+          />
           <div className={styles.favorits}>
-            <Favorite
-              onClick={handleAddToFavorite}
-              color={favorite ? "error" : "inherit"}
-              className={styles.star}
-            />
-            <Link href="/favoritbooks" className={styles.link}>
-              Go to favorite books
-            </Link>
-            Save the book to your read books list and see the list..
-            <Link
-              href="/readbooks"
-              className={styles.link}
-              onClick={() => handleAddBookRead(selectedBook)}
-            >
-              Read books <ArrowUpwardIcon />
-            </Link>
+            <div className={styles.favbook}>
+              <Favorite
+                onClick={handleAddToFavorite}
+                color={favorite ? "error" : "inherit"}
+                className={styles.star}
+              />
+              <Link href="/favoritbooks" className={styles.link}>
+                Go to favorite books <ArrowUpwardIcon />
+              </Link>
+            </div>
+            <div className={styles.favread}>
+              <h1>Save the book to your read books and see the list..</h1>
+              <Link
+                href="/readbooks"
+                className={styles.link}
+                onClick={() => handleAddBookRead(selectedBook)}
+              >
+                Read books <ArrowUpwardIcon />
+              </Link>
+            </div>
           </div>
         </div>
       ) : (
         <div>
           <h1>Searched titles</h1>
           <List
-              items={books}
-              onClick={handleBookClick}
-              typeToRender={(books: Book) => (
-                <h2 className={styles.favoritlistitem}>
-                  <img
-                    src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
-                    alt="Omslagsbild"
-                    width={60}
-                    height={90} />
-                  {books.title}
-                </h2>
-              )} className={styles.list}          />
+            items={books}
+            onClick={handleBookClick}
+            typeToRender={(books: Book) => (
+              <h2 className={styles.favoritlistitem}>
+                <img
+                  src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
+                  alt="Omslagsbild"
+                  width={90}
+                  height={120}
+                />
+                {books.title}
+              </h2>
+            )}
+            className={styles.list}
+          />
         </div>
       )}
     </div>

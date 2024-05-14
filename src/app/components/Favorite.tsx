@@ -1,3 +1,4 @@
+
 import React from 'react'
 import StarIcon from "@mui/icons-material/Star";
 
@@ -9,7 +10,7 @@ type FavoriteProps = {
 
 const Favorite = ({onClick, color, className}: FavoriteProps) => {
   return (
-    <div>
+    <div style={{fontSize:25}}>
           Mark and save as favorite, Click at the star
        <StarIcon
               className={className}

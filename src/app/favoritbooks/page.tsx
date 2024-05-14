@@ -1,3 +1,4 @@
+
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/globalredux/store";
@@ -19,8 +20,8 @@ const page = () => {
 
   return (
   
-    <div className={styles.favbooks}>
-      <h1>Favorit Böcker</h1>
+    <div className={styles.favorites}>
+      <h1 className={styles.favbook}>Favorite books</h1>
       <List
         items={favoriteBooks}
         typeToRender={(book: Book) => (

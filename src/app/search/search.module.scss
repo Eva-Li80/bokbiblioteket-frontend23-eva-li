@@ -1,27 +1,24 @@
 @import "../styles/functions.scss";
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
+//search
 .search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include displayFlex();
   background-image: linear-gradient(to right, $color-lightgreen, $color-light);
   min-height: 100vh;
 
   .searchbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include displayFlexAlign(column);
     background-image: url("../../../public/assets/opened-book.webp");
-    background-repeat: no-repeat; 
-    background-position: right; 
-    background-size: cover; 
-    border: 2px solid $color-light;
-    border-radius: 25px;
-    min-width: 90vw;
-    height: 90vh;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    @include border();
+    min-width: 80vw;
+    height: 80vh;
     margin: 50px 0;
-    padding-top: 50px;
+    padding-top: 25px;
   }
 
   span {
@@ -32,29 +29,24 @@
   }
 
   .btns {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include displayFlexAlign(row);
     margin-left: 50px;
-    
   }
 }
 
-
-
 .favoritlist {
   padding-top: 20px;
- display: flex;
- flex-direction: column;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: $color-lightgreen;
   min-height: 100vh;
- 
 
   h1 {
     font-size: 30px;
     padding-top: 20px;
-    color: $color-light;
+    color: $color-white;
+    margin-left: 20px;
   }
 
   .favoritlistitem {
@@ -92,19 +84,17 @@
       border: 5px solid $color-red;
       border-radius: 20px;
       margin-right: 50px;
+      @include displayFlexStandard(row);
     }
-    .list{
+    .list {
       display: flex;
       flex-direction: column;
-      margin: 20px    }
+      margin: 20px;
+    }
   }
 
-  .favoritlistitem:hover{
-    background-image: linear-gradient(
-      to right,
-      $color-beigedark,
-      $color-light
-    );
+  .favoritlistitem:hover {
+    background-image: linear-gradient(to right, $color-beigedark, $color-light);
     color: $color-red;
     cursor: pointer;
   }
@@ -130,12 +120,10 @@
     }
 
     a {
-      font-size: 10px;
-      padding: 10px 20px;
-      background-color: $color-light;
-      color:$color-lightgreen;
-      border: 2px solid $color-pink;
-      border-radius: 20px;
+      font-size: 20px;
+      padding: 0px 0 0 20px;
+      color: $color-green;
+      text-decoration: underline $color-red;
     }
 
     .favorits {
@@ -144,11 +132,20 @@
       justify-content: space-between;
       align-items: center;
       font-size: 20px;
-      margin-top: 20px;
+      margin-top: 40px;
 
-      .favbook, .favauthor{
+      .favbook,
+      .favread {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .favread {
+        h1 {
+          color: $color-green;
+        }
       }
 
       .star {
@@ -156,7 +153,7 @@
         height: 50px;
         margin-left: 5px;
       }
-      .star:hover{
+      .star:hover {
         background-color: rgb(234, 228, 228);
         cursor: pointer;
       }
