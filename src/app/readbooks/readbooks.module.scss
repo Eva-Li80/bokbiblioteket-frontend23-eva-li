@@ -23,26 +23,14 @@
     padding-top: 50px;
 
     .average {
-      @include displayFlexAlign(row);
+      @include displayFlexAlign(column);
       padding: 10px;
       margin: 10px;
-
-      button{
-        background-color: $color-lightgreen;
-       @include border($color-green);
-        padding: 10px;
-      }
     }
 
     .authors {
       margin: 20px 0px;
       padding: 10px;
-
-      button{
-        background-color: $color-lightgreen;
-        @include border($color-green);
-        padding: 10px;
-      }
     }
 
     p {

@@ -10,6 +10,8 @@ import {
 import styles from "./readbooks.module.scss";
 import Form from "../components/Form/Form";
 import List from "../components/List/List";
+import ButtonSmall from "../components/Buttons/ButtonSmall";
+import ButtonMedium from "../components/Buttons/ButtonMedium";
 
 const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -98,9 +100,9 @@ const Page = () => {
         <h2>Here you kan get some info about your read books</h2>
         <p>Fill in the form for the books and you can se more info..</p>
         <div className={styles.authors}>
-          <button onClick={handleAuthors}>
+          <ButtonMedium onClick={handleAuthors}>
             Click to see Authors in the list
-          </button>
+          </ButtonMedium>
           <p>
             {authors.map((a) => (
               <div key={a}>{a}</div>
@@ -110,13 +112,13 @@ const Page = () => {
 
         <div className={styles.average}>
           <p>{averagePages}</p>
-          <button onClick={handleAveragePages}>
+          <ButtonMedium onClick={handleAveragePages}>
             Click to see average pages
-          </button>
+          </ButtonMedium>
           <p>{averageGrade}</p>
-          <button onClick={handleAverageGrade}>
+          <ButtonMedium onClick={handleAverageGrade}>
             Click to see average grade
-          </button>
+          </ButtonMedium>
         </div>
       </div>
 
@@ -143,9 +145,9 @@ const Page = () => {
                 <p>Rating: {`${book.about?.grade}/ out of 5 stars`} </p>
                 <p>Pages: {book.about?.pages}</p>
                 <p>review: {book.about?.review}</p>
-                <button onClick={() => handleRemoveReadBook(book)}>
-                  Remove book
-                </button>
+                <ButtonSmall onClick={() => handleRemoveReadBook(book)}>
+                  Remove
+                </ButtonSmall>
               </div>
             </div>
 
