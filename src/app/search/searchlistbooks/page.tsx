@@ -9,10 +9,10 @@ import { Book } from "@/app/lib/types";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
-import Modal from "@/app/components/Module";
-import List from "@/app/components/List";
-import BookDetails from "@/app/components/BookDetails";
-import Favorite from "@/app/components/Favorite";
+import Modal from "@/app/components/Module/Module";
+import List from "@/app/components/List/List";
+import BookDetails from "@/app/components/Details/BookDetails";
+import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 export default function page() {

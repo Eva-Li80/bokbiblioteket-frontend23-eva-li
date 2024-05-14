@@ -10,10 +10,10 @@ import {
   removeFavoritAuhor,
   selectAuthor,
 } from "@/app/globalredux/feature/books/authorSlice";
-import List from "@/app/components/List";
-import AuthorDetails from "@/app/components/AuthorDetails";
-import Modal from "@/app/components/Module";
-import Favorite from "@/app/components/Favorite";
+import List from "@/app/components/List/List";
+import AuthorDetails from "@/app/components/Details/AuthorDetails";
+import Modal from "@/app/components/Module/Module";
+import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 
 export default function page() {

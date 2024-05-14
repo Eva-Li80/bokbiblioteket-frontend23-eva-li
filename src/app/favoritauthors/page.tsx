@@ -4,8 +4,8 @@ import { RootState } from "@/app/globalredux/store";
 import { Author } from "@/app/lib/types";
 import styles from "./favoritauthors.module.scss";
 import { removeFavoritAuhor } from "../globalredux/feature/books/authorSlice";
-import List from "../components/List";
-import AuthorDetails from "../components/AuthorDetails";
+import List from "../components/List/List";
+import AuthorDetails from "../components/Details/AuthorDetails";
 
 const page = () => {
   const favoriteAuthors = useSelector((state: RootState) => state.authors.favoritAuthors);

@@ -1,4 +1,4 @@
-@import "../styles//variables.scss";
+@import "../../styles//variables.scss";
 .header{
     background-color: $color-gray;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 16vh;
-    background-image: url("../../../public/assets/books-4515917_1280.jpg");
+    background-image: url("../../../../public/assets/books-4515917_1280.jpg");
     background-size: cover;
     background-position:top; 
     background-repeat: no-repeat; 

@@ -8,8 +8,8 @@ import {
   removeReadBook,
 } from "@/app/globalredux/feature/books/bookSlice";
 import styles from "./readbooks.module.scss";
-import Form from "../components/Form";
-import List from "../components/List";
+import Form from "../components/Form/Form";
+import List from "../components/List/List";
 
 const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);

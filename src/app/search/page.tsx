@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./search.module.scss";
-import { Search } from "../components/Search";
-import ButtonMedium from "../components/ButtonMedium";
+import { Search } from "../components/Search/Search";
+import ButtonMedium from "../components/Buttons/ButtonMedium";
 
 export default function page() {
   const [search, setSearch] = useState<"book" | "author">("book");

@@ -4,8 +4,8 @@ import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
 import { removeFavoritBook } from "@/app/globalredux/feature/books/bookSlice";
 import styles from "./favoritbooks.module.scss";
-import BookDetails from "../components/BookDetails";
-import List from "../components/List";
+import BookDetails from "../components/Details/BookDetails";
+import List from "../components/List/List";
 
 const page = () => {
   const favoriteBooks = useSelector(

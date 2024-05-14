@@ -1,6 +1,6 @@
 import React from "react";
-import { Author } from "../lib/types";
-import ButtonSmall from "./ButtonSmall";
+import { Author } from "../../lib/types";
+import ButtonSmall from "../Buttons/ButtonSmall";
 
 type AuthorDetailsProps = {
   author: Author;

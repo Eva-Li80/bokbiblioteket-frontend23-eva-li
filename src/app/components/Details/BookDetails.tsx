@@ -1,7 +1,7 @@
 import React from "react";
-import { Book } from "../lib/types";
+import { Book } from "../../lib/types";
 import styles from "./details.module.scss"
-import ButtonSmall from "./ButtonSmall";
+import ButtonSmall from "../Buttons/ButtonSmall";
 
 type BookDetailsProps = {
   book: Book;
