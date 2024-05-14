@@ -97,6 +97,7 @@ const Page = () => {
           </p>
         </div>
       <div className={styles.bookcount}>
+        <h2>Here you kan get some info about your read books</h2>
       <div className={styles.authors}>
           <button onClick={handleAuthors}>
             Click to see Authors in the list

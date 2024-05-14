@@ -30,7 +30,7 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
     <div>
       {title && (
         <div className={className}>
-          <h2>Title: {title}</h2>
+          <h2>{title}</h2>
           <img
             src={`https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`}
             alt="Omslagsbild"
