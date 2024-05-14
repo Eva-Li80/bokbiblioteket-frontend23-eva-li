@@ -12,10 +12,10 @@ import {
 } from "@/app/globalredux/feature/authors/authorSlice";
 import List from "@/app/components/List/List";
 import AuthorDetails from "@/app/components/Details/AuthorDetails";
-import Modal from "@/app/components/Module/Module";
+import Modal from "@/app/components/Modal/Modal";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
-import openModal from "@/app/components/Module/openModule";
+import openModal from "@/app/components/Modal/openModal";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
