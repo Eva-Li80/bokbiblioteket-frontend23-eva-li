@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from "./list.module.scss"
 
 type ListProps<T> = {
     items: T[];

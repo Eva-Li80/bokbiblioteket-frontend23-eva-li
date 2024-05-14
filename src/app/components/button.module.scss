@@ -3,15 +3,11 @@
 .buttonsmall{
     margin: 40px;
     border: 3px solid #FFE7B9;
- 
     padding: 15px 30px;
     font-size: 25px;
     background-color: #B66666;
     color: #FFE7B9;
- 
-    
     border-radius: 10px;
-
 }
 
 .buttonsmall:hover {
@@ -24,7 +20,6 @@
   }
 
 .buttonmedium{
-    // background-image: linear-gradient(to right, $color-lightgreen, $color-light);
     color: white;
     padding: 10px 20px;
     border: 2px solid $color-light;
