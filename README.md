@@ -12,7 +12,7 @@ Användaren kan även få annan information som tex medelbetyg på alla lästa b
 En applikation för den som främst tycker om att läsa böcker och ha koll på dem.
 
 
-## Setup
+## Starta projketet
 ### klona projektet på github
 ### npm install
 ### npm run dev
