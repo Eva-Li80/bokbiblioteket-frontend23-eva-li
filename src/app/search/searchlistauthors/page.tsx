@@ -9,7 +9,7 @@ import {
   clearSelectedAuthor,
   removeFavoritAuhor,
   selectAuthor,
-} from "@/app/globalredux/feature/books/authorSlice";
+} from "@/app/globalredux/feature/authors/authorSlice";
 import List from "@/app/components/List/List";
 import AuthorDetails from "@/app/components/Details/AuthorDetails";
 import Modal from "@/app/components/Module/Module";

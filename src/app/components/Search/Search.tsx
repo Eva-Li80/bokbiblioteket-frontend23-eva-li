@@ -9,7 +9,7 @@ import {
 import { fetchAthurByName, fetchBooksByTitle } from "@/app/lib/getApi";
 import Link from "next/link";
 import styles from "./searches.module.scss"
-import { setAuthors } from "../../globalredux/feature/books/authorSlice";
+import { setAuthors } from "../../globalredux/feature/authors/authorSlice";
 
 type SearchProps = {
     type: "book" | "author"
