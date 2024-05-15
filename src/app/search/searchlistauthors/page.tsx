@@ -24,7 +24,6 @@ export default function page() {
     (state: RootState) => state.authors.selectedAuthor
   );
   const dispatch = useDispatch();
-  const [search, setSearch] = useState("");
   const favAuthor = useSelector(
     (state: RootState) => state.authors.favoritAuthors
   );
@@ -33,7 +32,6 @@ export default function page() {
     : false;
 
   useEffect(() => {
-    setSearch("");
     dispatch(clearSelectedAuthor());
   }, [dispatch]);
 
@@ -50,7 +48,6 @@ export default function page() {
         openModal(setModalIsOpen, 3000);
       }
     }
-    setSearch("");
   };
 
   return (

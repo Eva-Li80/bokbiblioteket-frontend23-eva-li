@@ -22,7 +22,6 @@ export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const dispatch = useDispatch();
-  const [search, setSearch] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const favBooks = useSelector((state: RootState) => state.book.favoritBooks);
   const favorite = selectedBook
@@ -42,12 +41,10 @@ export default function page() {
        openModal(setModalIsOpen, 3000)
       }
     }
-    setSearch("");
   };
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
-    setSearch("");
   };
 
   return (
