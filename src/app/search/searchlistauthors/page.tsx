@@ -51,12 +51,12 @@ export default function page() {
   };
 
   return (
-    <div className={styles.favoritlist}>
+    <div className={styles.listitemcontainer}>
       <div>
         <Modal isOpen={modalIsOpen} />
       </div>
       {selectedAuthor ? (
-        <div className={styles.favoritlistdetails}>
+        <div className={styles.listdetails}>
           <AuthorDetails author={selectedAuthor} className={styles.author} />
           <div className={styles.favorits}>
             <Favorite
@@ -64,7 +64,7 @@ export default function page() {
               color={favorite ? "error" : "inherit"}
               className={styles.star}
             />
-            <Link href="/favoritauthors">
+            <Link href="/favoritauthors" className={styles.link}>
               See your list with favorite authors
             </Link>
           </div>
@@ -77,11 +77,12 @@ export default function page() {
             onClick={handleAuthorClick}
             typeToRender={(author: Author) => (
               <div>
-                <h2 className={styles.favoritlistitem}>
+                <h2 className={styles.listitem}>
                   <img
                     src={author.imageUrl}
                     alt={author.name}
-                    style={{ width: 100, height: 150 }}
+                    width={120}
+                    height={150}
                   />
                   {author.name}
                 </h2>

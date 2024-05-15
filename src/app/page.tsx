@@ -11,7 +11,7 @@ export default async function Home() {
       <div className={styles.title}>
         <h1>Book proposal from the archive...</h1>
       </div>
-      <ul className={styles.biblioteket}>
+      <ul className={styles.library}>
         {books.map((book: Book, index: number) => (
           <li key={index} className={styles.books}>
             <Card>

@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useDispatch } from "react-redux";
 import { Author, Book } from "@/app/lib/types";
 import {
   setBooks,
-
 } from "@/app/globalredux/feature/books/bookSlice";
 import { fetchAthurByName, fetchBooksByTitle } from "@/app/lib/getApi";
 import Link from "next/link";
@@ -45,7 +44,7 @@ export function Search({type}:SearchProps) {
   };
 
   return (
-    <div className={styles.favorits}>
+    <div className={styles.search}>
       <input
         type="text"
         value={search}

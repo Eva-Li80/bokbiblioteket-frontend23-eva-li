@@ -2,22 +2,17 @@
 @import "../../styles/functions.scss";
 
 .card {
-    background-image: linear-gradient(to right, $color-lightgreen, $color-beigedark, $color-light);
-    display: flex; /* Använd flexbox */
-    flex-direction: column; /* Visa innehållet i en kolumn */
-    justify-content: space-between; /* Placera innehållet längst upp och längst ner */
-    width: 280px;
-    height: 400px;
-    margin: 40px;
-    padding: 20px;
-    border: 1px solid $color-lightgreen;
-  }
+  background-image: linear-gradient(
+    to right,
+    $color-lightgreen,
+    $color-beigedark,
+    $color-light
+  );
   
-  .title {
-    color: white;
-    padding: 10px;
-    overflow: hidden; /* Dölj överskottsinnehåll */
-    text-overflow: ellipsis; /* Visa ... om texten är för lång för att passa */
-    white-space: nowrap; /* Förhindra att texten bryts på flera rader */
-  }
-  
+  @include displayFlexStandard(column);
+  width: 280px;
+  height: 400px;
+  margin: 40px;
+  padding: 20px;
+  border: 1px solid $color-lightgreen;
+}

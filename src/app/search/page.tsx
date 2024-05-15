@@ -14,7 +14,6 @@ export default function page() {
   return (
     <div className={styles.search}>
       <div className={styles.searchbox}>
-        <Search type={search} />
         <div className={styles.btns}>
           <span>Search on...</span>
           <ButtonMedium onClick={() => handleSearch("book")}>
@@ -25,6 +24,7 @@ export default function page() {
             <h1>Author name</h1>
           </ButtonMedium>
         </div>
+        <Search type={search} />
       </div>
     </div>
   );

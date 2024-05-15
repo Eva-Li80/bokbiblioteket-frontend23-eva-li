@@ -48,12 +48,12 @@ export default function page() {
   };
 
   return (
-    <div className={styles.favoritlist}>
+    <div className={styles.listitemcontainer}>
       <div>
         <Modal isOpen={modalIsOpen} />
       </div>
       {selectedBook ? (
-        <div className={styles.favoritlistdetails}>
+        <div className={styles.listdetails}>
           <BookDetails
             book={selectedBook}
             showDescription={true}
@@ -91,7 +91,7 @@ export default function page() {
             items={books}
             onClick={handleBookClick}
             typeToRender={(books: Book) => (
-              <h2 className={styles.favoritlistitem}>
+              <h2 className={styles.listitem}>
                 <img
                   src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
                   alt="Omslagsbild"

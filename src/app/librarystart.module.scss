@@ -3,39 +3,31 @@
 
 .main {
   background-image: linear-gradient(to right, $color-lightgreen, $color-light);
-  background-repeat: no-repeat; 
-    background-position: right; 
-    background-size: cover; 
-  
- 
-    @include displayFlexAlign(column);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+@include displayFlexAlign(column);
 
   .title {
     font-size: 40px;
-    margin: 60px 0 20px 0;
-    color:#FCA2A2;
+    margin: 30px 0 20px 0;
     font-weight: bold;
-    text-decoration: underline;
     background: linear-gradient(
-      to right, 
-  $color-light,
-  $color-light,
-  $color-white,
+      to right,
+      $color-light,
+      $color-light,
+      $color-white
     );
--webkit-background-clip: text;
--webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .biblioteket {
+  .library {
     @include displayFlexjustify(row);
-    background-image: linear-gradient(to right, $color-white);
-    border-radius: 25px;
     width: 80vw;
-  
   }
 
   .books {
-    display: flex;
-    flex-wrap: row;
+   @include displayFlexWrap(row);
   }
 }

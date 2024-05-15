@@ -17,8 +17,6 @@
     @include border($color-light);
     min-width: 80vw;
     height: 80vh;
-    margin: 50px 0;
-    padding-top: 25px;
   }
 
   span {
@@ -30,11 +28,12 @@
 
   .btns {
     @include displayFlexAlign(row);
-    margin-left: 50px;
+   margin-top: 100px;
   }
 }
 
-.favoritlist {
+//list
+.listitemcontainer {
   padding-top: 20px;
  @include displayFlexAlign(column);
   background-color: $color-lightgreen;
@@ -47,13 +46,13 @@
     margin-left: 20px;
   }
 
-  .favoritlistitem {
+  .listitem {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     font-size: 20px;
-    width: 800px;
+    max-width: 800px;
     background-image: linear-gradient(
       to right,
       $color-lightgreen,
@@ -77,7 +76,7 @@
       font-size: 20px;
       margin: 20px;
       padding: 10px 20px;
-      background-color: $color-blue;
+      background-color: $color-green;
       color: $color-white;
       @include border($color-red);
       margin-right: 50px;
@@ -90,19 +89,20 @@
     }
   }
 
-  .favoritlistitem:hover {
+  .listitem:hover {
     background-image: linear-gradient(to right, $color-beigedark, $color-light);
     color: $color-red;
     cursor: pointer;
   }
 
-  .favoritlistdetails {
+  //list details
+  .listdetails {
     @include displayFlexWrap(column);
     background-color: $color-white;
     @include borderbig($color-green);
-    padding: 20px 0px;
+    padding: 20px 20px;
     margin-top: 50px;
-    min-width: 60vw;
+    max-width: 70vw;
 
     h2 {
       font-size: 30px;
@@ -116,7 +116,7 @@
     }
 
     a {
-      font-size: 20px;
+      font-size: 23px;
       padding: 0px 0 0 20px;
       color: $color-green;
       text-decoration: underline $color-red;
@@ -129,6 +129,10 @@
       align-items: center;
       font-size: 20px;
       margin-top: 40px;
+
+      a{
+        font-size: 20px;
+      }
 
       .favbook,
       .favread {
@@ -153,3 +157,4 @@
     }
   }
 }
+
