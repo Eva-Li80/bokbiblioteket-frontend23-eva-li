@@ -15,7 +15,7 @@ import AuthorDetails from "@/app/components/Details/AuthorDetails";
 import Modal from "@/app/components/Modal/Modal";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
-import openModal from "@/app/components/Modal/openModal";
+import openModal from "@/app/components/Modal/openModule";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);

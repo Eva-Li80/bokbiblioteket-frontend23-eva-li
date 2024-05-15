@@ -1,21 +1,28 @@
 import React from "react";
 import { Book } from "../../lib/types";
 import ButtonSmall from "../Buttons/ButtonSmall";
+import styles from "./details.module.scss";
 
 type BookDetailsProps = {
   book: Book;
   showDescription: boolean;
   showpublisher: boolean;
   showGenre: boolean;
-className: string;
+  className: string;
   onClick?: (book: Book) => void;
-
 };
 
-const BookDetails = ({ book, showDescription , showpublisher, showGenre, className , onClick}: BookDetailsProps) => {
-    if(!book){
-        return <div>No Books!</div>
-    }
+const BookDetails = ({
+  book,
+  showDescription,
+  showpublisher,
+  showGenre,
+  className,
+  onClick,
+}: BookDetailsProps) => {
+  if (!book) {
+    return <div>No Books!</div>;
+  }
   const {
     title,
     cover_i,
@@ -27,7 +34,7 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
     subjects,
   } = book;
   return (
-    <div>
+    <div className={styles.about}>
       {title && (
         <div className={className}>
           <h2>{title}</h2>
@@ -38,16 +45,20 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
             height={250}
           />
           <p>First sentence: {first_sentence}</p>
+          {showDescription && description && <p>Description: {description}</p>}
+          {showGenre && subjects && subjects.length > 0 && (
+            <p>Genre: {subjects[0]}</p>
+          )}
           {subjects && author_name.length > 0 && (
-          <p>Author: {author_name[0]}</p>)}
+            <p>Author: {author_name[0]}</p>
+          )}
           <p>Year: {first_publish_year}</p>
           {showpublisher && publisher && publisher.length > 0 && (
             <p>Publisher: {publisher}</p>
           )}
-          {showDescription && description && <p>Description: {description}</p>}
-          {showGenre && subjects && subjects.length > 0 && (
-          <p>Genre: {subjects[0]}</p>)}
-         {onClick &&  <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>}
+          {onClick && (
+            <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>
+          )}
         </div>
       )}
     </div>
@@ -55,4 +66,3 @@ const BookDetails = ({ book, showDescription , showpublisher, showGenre, classNa
 };
 
 export default BookDetails;
-

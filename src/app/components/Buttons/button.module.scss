@@ -3,7 +3,7 @@
 
 .buttonsmall {
   width: 150px;
-  margin: 40px;
+  margin: 20px 0 20px 5px;
   @include border($color-light);
   padding: 10px 20px;
   font-size: 25px;

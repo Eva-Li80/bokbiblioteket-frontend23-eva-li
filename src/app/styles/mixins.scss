@@ -16,6 +16,7 @@
   }
   
   @mixin item() {
+    flex:1;
     background-color: $color-white;
     border: 2px solid $color-green;
     padding: 10px 20px;
@@ -34,11 +35,12 @@
   
   @mixin detail {
     padding: 30px;
-    min-width: 450px;
+    width: 450px;
     min-height: 800px;
     background-color: $color-light;
     border: 2px solid $color-red;
     border-radius: 5px;
+    overflow: hidden;
   }
   
   @mixin lists() {

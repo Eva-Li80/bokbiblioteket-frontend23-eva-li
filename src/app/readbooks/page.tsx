@@ -90,15 +90,15 @@ const Page = () => {
 
   return (
     <div className={styles.readbooks}>
-      <h1>Read books</h1>
-      <div>
-        <p className={styles.count}>
-          You have read {countBooks} book/books & total {totalPage} pages
-        </p>
-      </div>
+      <h1>List of read books and your reviews..</h1>
       <div className={styles.bookcount}>
-        <h2>Here you kan get some info about your read books</h2>
-        <p>Fill in the form for the books and you can se more info..</p>
+        <div>
+          <p className={styles.count}>
+            You have read <span> {countBooks} </span>book/books & total{" "}
+            <span> {totalPage} </span>pages
+          </p>
+        </div>
+        <h2>Fill in the form for the books and you can se more info..</h2>
         <div className={styles.authors}>
           <ButtonMedium onClick={handleAuthors}>
             Click to see Authors in the list
@@ -111,53 +111,62 @@ const Page = () => {
         </div>
 
         <div className={styles.average}>
-          <p>{averagePages}</p>
-          <ButtonMedium onClick={handleAveragePages}>
-            Click to see average pages
-          </ButtonMedium>
-          <p>{averageGrade}</p>
-          <ButtonMedium onClick={handleAverageGrade}>
-            Click to see average grade
-          </ButtonMedium>
+          <div>
+            <p>{averagePages}</p>
+            <ButtonMedium onClick={handleAveragePages}>
+              Click to see average pages
+            </ButtonMedium>
+          </div>
+          <div>
+            <p>{averageGrade}</p>
+            <ButtonMedium onClick={handleAverageGrade}>
+              Click to see average grade
+            </ButtonMedium>
+          </div>
         </div>
       </div>
+      <div>
+        <List
+          items={readBooks}
+          typeToRender={(book: Book) => (
+            <div
+              key={book.key}
+              className={styles.listitem}
+              style={{ width: "45vw" }}
+            >
+              <img
+                src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
+                alt="Omslagsbild"
+                width={250}
+                height={300}
+              />
+              <h2>{book.title}</h2>
+              <p>{book.first_publish_year} </p>
+              <div className={styles.review}>
+                <div
+                  className={styles.click}
+                  onClick={() => handleSelectedBook(book)}
+                >
+                  <h1>Click here to write reviews!</h1>
+                </div>
+                <div className={styles.reviews}>
+                  <p>Rating: {`${book.about?.grade}/ out of 5 stars`} </p>
+                  <p>Pages: {book.about?.pages}</p>
+                  <p>review: {book.about?.review}</p>
+                  <ButtonSmall onClick={() => handleRemoveReadBook(book)}>
+                    Remove
+                  </ButtonSmall>
+                </div>
+              </div>
 
-      <List
-        items={readBooks}
-        typeToRender={(book: Book) => (
-          <div key={book.key} className={styles.listitem}>
-            <img
-              src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
-              alt="Omslagsbild"
-              width={250}
-              height={300}
-            />
-            <h2>{book.title}</h2>
-            <p>{book.first_publish_year} </p>
-            <div className={styles.review}>
-              <div
-                className={styles.click}
-                onClick={() => handleSelectedBook(book)}
-              >
-                <h1>Click here to write reviews!</h1>
-              </div>
-              <div className={styles.reviews}>
-                <p>Rating: {`${book.about?.grade}/ out of 5 stars`} </p>
-                <p>Pages: {book.about?.pages}</p>
-                <p>review: {book.about?.review}</p>
-                <ButtonSmall onClick={() => handleRemoveReadBook(book)}>
-                  Remove
-                </ButtonSmall>
-              </div>
+              {selectedBook && selectedBook.key === book.key && (
+                <Form onSave={handleSaveAboutBookInfo} />
+              )}
             </div>
-
-            {selectedBook && selectedBook.key === book.key && (
-              <Form onSave={handleSaveAboutBookInfo} />
-            )}
-          </div>
-        )}
-        className={styles.list}
-      />
+          )}
+          className={styles.list}
+        />
+      </div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import BookDetails from "@/app/components/Details/BookDetails";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import openModal from "../../components/Modal/openModal"
+import openModal from "../../components/Modal/openModule"
 
 
 export default function page() {

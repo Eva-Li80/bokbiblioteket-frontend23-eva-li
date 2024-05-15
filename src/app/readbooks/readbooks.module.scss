@@ -10,12 +10,23 @@
 
   .count {
     font-size: 25px;
+    padding-bottom: 10px;
+
+    span{
+      background-color: $color-beigedark;
+      color: $color-red;
+      padding: 10px 15px;
+      margin: 10px;
+      border-radius: 40%;
+      border: 2px solid $color-light;
+      
+    }
   }
 
   .bookcount {
     @include displayFlexStandard(column);
-    background-color: $color-lightgreen;
-    color: $color-light;
+    background-color:   #39473c;
+    color: $color-white;
     @include borderbig($color-pink);
     width: 33vw;
     margin: 20px;
@@ -24,7 +35,10 @@
     .average {
       @include displayFlexAlign(column);
       padding: 10px;
-      margin: 10px;
+      margin: 10px 0 40px 0;
+      background-color: $color-lightgreen;
+      padding: 20px;
+      @include border($color-light)
     }
 
     .authors {
