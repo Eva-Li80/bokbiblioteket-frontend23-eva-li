@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.title}>
-        <h1>Book proposal from the archive...</h1>
+        <h1>Top 10 from the archive...</h1>
       </div>
       <ul className={styles.library}>
         {books.map((book: Book, index: number) => (

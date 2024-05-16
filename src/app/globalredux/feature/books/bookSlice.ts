@@ -4,14 +4,12 @@ import {createSlice, PayloadAction } from "@reduxjs/toolkit";
 type BookState = {
   books: Book[];
   favoritBooks: Book[];
-  status: "loading" | "succeeded" | "failed";
   readBooks: Book[]
 };
 
 const initialState: BookState = {
   books: [],
   favoritBooks: [],
-  status: "loading",
   readBooks: []
 };
 

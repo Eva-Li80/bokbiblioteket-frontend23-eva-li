@@ -1,11 +1,11 @@
 "use client";
 import { configureStore } from "@reduxjs/toolkit";
 import { authorSliceReducer } from "./feature/authors/authorSlice";
-import bookSlice from "./feature/books/bookSlice";
+import bookSliceReducer from "./feature/books/bookSlice";
 
 export const store = configureStore({
   reducer: {
-    book: bookSlice,
+    book: bookSliceReducer,
     authors: authorSliceReducer
   },
 })
