@@ -2,7 +2,10 @@
 @import "../../styles/functions.scss";
 .header{
     background-color: $color-gray;
-  @include displayFlexWrap(column);
+  // @include displayFlexWrap(row);
+  display: flex;
+  justify-content: center;
+  align-items: center;
     height: 16vh;
     background-image: url("../../../../public/assets/books-4515917_1280.jpg");
     background-size: cover;
@@ -22,5 +25,16 @@
           );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
+  margin-left: 45%;
+  margin-right: auto;
+    }
+
+    .clock{
+      background-color: rgb(232, 192, 117);
+      color: rgb(130, 21, 21);
+      border-radius: 100%;
+    margin-right: 50px;
+      padding: 5px;
+
     }
 }

@@ -12,6 +12,9 @@ import Form from "../components/Form/Form";
 import List from "../components/List/List";
 import ButtonSmall from "../components/Buttons/ButtonSmall";
 import ButtonMedium from "../components/Buttons/ButtonMedium";
+import { countBooks } from "../components/utility/countBooks";
+import { calcTotalPages } from "../components/utility/calcTotalPages";
+import { calcTotal } from "../components/utility/calcTotal";
 
 const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -21,20 +24,14 @@ const Page = () => {
   const [averagePages, setAveragePages] = useState<number | null>(null);
   const [authors, setAuthors] = useState<string[]>([]);
 
-  const countBooks = readBooks.length;
+  const booksCount = countBooks(readBooks)
 
-  const totalPage = readBooks.reduce(
-    (total, book) => total + parseInt(book.about?.pages || "0"),
-    0
-  );
+  const totalPage = calcTotalPages(readBooks)
 
   const handleAverageGrade = () => {
-    const totalGrade = readBooks.reduce(
-      (total, book) => total + parseInt(book.about?.grade || "0"),
-      0
-    );
+    const totalGrade = calcTotal(readBooks, "grade" as keyof Book['about'])
     if (totalGrade > 0) {
-      const averageGrade = totalGrade / countBooks;
+      const averageGrade = totalGrade / booksCount;
       setAverageGrade(averageGrade);
     } else {
       setAverageGrade(null);
@@ -42,12 +39,9 @@ const Page = () => {
   };
 
   const handleAveragePages = () => {
-    const totalPages = readBooks.reduce(
-      (total, book) => total + parseInt(book.about?.pages || "0"),
-      0
-    );
+    const totalPages = calcTotal(readBooks, "pages" as keyof Book['about'])
     if (totalPage > 0) {
-      const averagePages = totalPages / countBooks;
+      const averagePages = totalPages / booksCount;
       setAveragePages(averagePages);
     } else {
       setAveragePages(null);
@@ -94,7 +88,7 @@ const Page = () => {
       <div className={styles.bookcount}>
         <div>
           <p className={styles.count}>
-            You have read <span> {countBooks} </span>book/books & total{" "}
+            You have read <span> {booksCount} </span>book/books & total{" "}
             <span> {totalPage} </span>pages
           </p>
         </div>
@@ -103,11 +97,11 @@ const Page = () => {
           <ButtonMedium onClick={handleAuthors}>
             Click to see Authors in the list
           </ButtonMedium>
-          <p>
+          <div>
             {authors.map((a) => (
               <div key={a}>{a}</div>
             ))}
-          </p>
+          </div>
         </div>
 
         <div className={styles.average}>
