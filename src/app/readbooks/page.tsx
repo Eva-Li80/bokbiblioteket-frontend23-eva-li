@@ -24,12 +24,12 @@ const Page = () => {
   const [averagePages, setAveragePages] = useState<number | null>(null);
   const [authors, setAuthors] = useState<string[]>([]);
 
-  const booksCount = countBooks(readBooks)
+  const booksCount = countBooks(readBooks);
 
-  const totalPage = calcTotalPages(readBooks)
+  const totalPage = calcTotalPages(readBooks);
 
   const handleAverageGrade = () => {
-    const totalGrade = calcTotal(readBooks, "grade" as keyof Book['about'])
+    const totalGrade = calcTotal(readBooks, "grade" as keyof Book["about"]);
     if (totalGrade > 0) {
       const averageGrade = totalGrade / booksCount;
       setAverageGrade(averageGrade);
@@ -39,7 +39,7 @@ const Page = () => {
   };
 
   const handleAveragePages = () => {
-    const totalPages = calcTotal(readBooks, "pages" as keyof Book['about'])
+    const totalPages = calcTotal(readBooks, "pages" as keyof Book["about"]);
     if (totalPage > 0) {
       const averagePages = totalPages / booksCount;
       setAveragePages(averagePages);
@@ -144,9 +144,9 @@ const Page = () => {
                   <h1>Click here to write reviews!</h1>
                 </div>
                 <div className={styles.reviews}>
+                  <p>review: {book.about?.review}</p>
                   <p>Rating: {`${book.about?.grade}/ out of 5 stars`} </p>
                   <p>Pages: {book.about?.pages}</p>
-                  <p>review: {book.about?.review}</p>
                   <ButtonSmall onClick={() => handleRemoveReadBook(book)}>
                     Remove
                   </ButtonSmall>

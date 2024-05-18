@@ -39,7 +39,7 @@ export function Search({type}:SearchProps) {
 
   const handleSearchClick = () => {
     dispatch(setBooks([]))
-    dispatch(setBooks([]))
+    dispatch(setAuthors([]))
     searchData();
   };
 

@@ -36,7 +36,7 @@ const Form = ({ onSave}: FormProps) => {
                     <option value="4">🌟🌟🌟🌟</option>
                     <option value="5">🌟🌟🌟🌟🌟</option>
                 </select>
-                <input type="text" value={pages} onChange={e => setPages(e.target.value)} placeholder='pages..' />
+                <input type="number" value={pages} onChange={e => setPages(e.target.value)} placeholder='pages..' />
                 <ButtonSmall onClick={handleSave}>Save</ButtonSmall>
             </article>
         </div>
