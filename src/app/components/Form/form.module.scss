@@ -1,22 +1,21 @@
 @import "../../styles//functions.scss";
 @import "../../styles/variables.scss";
 
-.form{
+.form {
+  padding: 50px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 
-    padding: 50px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-
-    .items{
-        input{
-            padding: 5px;
-            color: $color-green;
-            margin: 15px 0 0 5px;
-        }
-
-        select{
-            padding: 8px;
-            margin: 0 10px;
-        }
+  .items {
+    input {
+      padding: 5px;
+      color: $color-green;
+      margin: 15px 0 0 5px;
     }
+
+    select {
+      padding: 8px;
+      margin: 0 10px;
+    }
+  }
 }

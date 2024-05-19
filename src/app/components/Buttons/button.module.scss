@@ -4,14 +4,12 @@
 
 .buttonsmall {
   @include displayFlexStandard(row);
+  @include border($color-light);
+  @include colors($color-redd, $color-light);
   width: 150px;
   margin: 20px 0 20px 5px;
-  @include border($color-light);
   padding: 10px 20px;
   font-size: 25px;
-  background-color: #b66666;
-  color: #ffe7b9;
- 
 }
 
 .buttonsmall:hover {
@@ -25,8 +23,7 @@
   padding: 10px 20px;
   @include border($color-light);
   margin: 0px 20px 0px 0px;
-  font-size: 25px;
-  font-weight: bold;
+  @include font(25, bold);
 }
 
 .buttonmedium:hover {

@@ -9,19 +9,18 @@
   margin: 20px 0px 50px 50px;
 
   input {
+    @include border($color-light);
     padding: 20px 20px;
-  @include border($color-light);
     background-color: $color-white;
     font-size: 20px;
   }
 
   a {
+    @include border($color-light);
+    @include font(25px, bold);
     color: $color-white;
     padding: 10px 20px;
-    @include border($color-light);
     margin: 0px 20px 0px 0px;
-    font-size: 25px;
-    font-weight: bold;
     margin-left: 75px;
   }
 
@@ -34,5 +33,3 @@
     );
   }
 }
-
-

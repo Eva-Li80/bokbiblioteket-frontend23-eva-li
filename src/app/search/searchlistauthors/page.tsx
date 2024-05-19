@@ -16,6 +16,7 @@ import Modal from "@/app/components/Modal/Modal";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import openModal from "@/app/components/utility/openModule";
+import { useToggle } from "@/app/components/hooks/useToggle";
 
 export default function page() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,6 +31,7 @@ export default function page() {
   const favorite = selectedAuthor
     ? favAuthor.some((author) => author.key === selectedAuthor.key)
     : false;
+    const { toggle, handleToggle } = useToggle();
 
   useEffect(() => {
     dispatch(clearSelectedAuthor());
@@ -48,6 +50,7 @@ export default function page() {
         openModal(setModalIsOpen, 3000);
       }
     }
+    handleToggle()
   };
 
   return (
@@ -61,7 +64,7 @@ export default function page() {
           <div className={styles.favorits}>
             <Favorite
               onClick={handleAddToFavorite}
-              color={favorite ? "error" : "inherit"}
+              color={toggle ? "error" : "inherit"}
               className={styles.star}
             />
             <Link href="/favoritauthors" className={styles.link}>

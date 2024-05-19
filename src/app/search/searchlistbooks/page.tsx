@@ -15,8 +15,8 @@ import BookDetails from "@/app/components/Details/BookDetails";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import openModal from "../../components/utility/openModule"
-
+import openModal from "../../components/utility/openModule";
+import { useToggle } from "@/app/components/hooks/useToggle";
 
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
@@ -28,6 +28,8 @@ export default function page() {
     ? favBooks.some((book) => book.key === selectedBook.key)
     : false;
 
+  const { toggle, handleToggle } = useToggle();
+
   const handleBookClick = (book: Book) => {
     setSelectedBook(book);
   };
@@ -38,15 +40,15 @@ export default function page() {
         dispatch(removeFavoritBook(selectedBook));
       } else {
         dispatch(addToFavoritBooks(selectedBook));
-       openModal(setModalIsOpen, 3000)
+        openModal(setModalIsOpen, 3000);
       }
     }
+    handleToggle();
   };
 
   const handleAddBookRead = (book: Book) => {
     dispatch(addToReadBooks(book));
   };
-
 
   return (
     <div className={styles.listitemcontainer}>
@@ -66,7 +68,7 @@ export default function page() {
             <div className={styles.favbook}>
               <Favorite
                 onClick={handleAddToFavorite}
-                color={favorite ? "error" : "inherit"}
+                color={toggle ? "error" : "inherit"}
                 className={styles.star}
               />
               <Link href="/favoritbooks" className={styles.link}>

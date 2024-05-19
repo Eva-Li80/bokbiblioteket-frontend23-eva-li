@@ -23,9 +23,7 @@ const Page = () => {
   const [averageGrade, setAverageGrade] = useState<number | null>(null);
   const [averagePages, setAveragePages] = useState<number | null>(null);
   const [authors, setAuthors] = useState<string[]>([]);
-
   const booksCount = countBooks(readBooks);
-
   const totalPage = calcTotalPages(readBooks);
 
   const handleAverageGrade = () => {

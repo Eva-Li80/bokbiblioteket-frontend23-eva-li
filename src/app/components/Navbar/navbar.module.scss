@@ -3,27 +3,23 @@
 @import "../../styles/mixins.scss";
 
 .navbar {
-  background-color:$color-beigedark;
+  @include displayFlexStandard(row);
+  background-color: $color-beigedark;
   height: 100px;
   width: 100%;
-  @include displayFlexStandard(row);
-  border-bottom: 2px solid  #768a7a;
-  border-top: 2px solid   #dbd086;
-  
+  border-bottom: 2px solid $color-lightgreen;
+  border-top: 2px solid $color-light;
+
   .menubar {
     a {
-      margin: 40px;
       @include border($color-light);
+      @include colors($color-redd, $color-light);
+      margin: 40px;
       padding: 15px 30px;
       font-size: 25px;
-      background-color: #B66666;
-      color: #FFE7B9;
-      
     }
-    
-    a:hover{
-      background-color: #FCA2A2;
-      color: #3F3E3E
+    a:hover {
+      @include colors($color-pink, $color-green);
     }
   }
 }
@@ -31,8 +27,8 @@
 @media screen and (max-width: 768px) {
   .navbar {
     .menubar a {
-      padding: 15px 10px; 
-      font-size: 16px; 
+      padding: 15px 10px;
+      font-size: 16px;
       margin: 5px;
     }
   }

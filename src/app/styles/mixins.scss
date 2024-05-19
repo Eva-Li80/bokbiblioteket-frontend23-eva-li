@@ -60,5 +60,17 @@
     border-radius: 25px;
   }
 
+  @mixin colors($backgroundColor, $textColor) {
+    background-color: $backgroundColor;
+    color: $textColor;
+  }
+
+
+@mixin font($fontSize, $fontWeight) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}
+
+
   
   

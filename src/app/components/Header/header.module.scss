@@ -1,40 +1,22 @@
 @import "../../styles/variables.scss";
 @import "../../styles/functions.scss";
-.header{
-    background-color: $color-gray;
-  // @include displayFlexWrap(row);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    height: 16vh;
-    background-image: url("../../../../public/assets/books-4515917_1280.jpg");
-    background-size: cover;
-    background-position:top; 
-    background-repeat: no-repeat; 
+@import "../../styles/mixins.scss";
+.header {
+  background-color: $color-gray;
+  @include displayFlex();
+  height: 16vh;
+  background-image: url("../../../../public/assets/books-4515917_1280.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 
-    h2{
-        font-size: 60px;
-        font-weight: bold;
-        margin-right: 25px;
-        background: linear-gradient(
-            to right, 
-            $color-light,
-            $color-white,
-       
-           
-          );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  margin-left: 45%;
-  margin-right: auto;
-    }
-
-    .clock{
-      background-color: rgb(232, 192, 117);
-      color: rgb(130, 21, 21);
-      border-radius: 100%;
-    margin-right: 50px;
-      padding: 5px;
-
-    }
+  h2 {
+    @include font(60px, bold);
+    margin-right: 25px;
+    background: linear-gradient(to right, $color-light, $color-white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 45%;
+    margin-right: auto;
+  }
 }
