@@ -18,8 +18,6 @@ En applikation för den som främst tycker om att läsa böcker och ha koll på 
 ### npm run dev
 ### öppna  [http://localhost:3000](http://localhost:3000) med din webbläsare för att se The Library.
 
-## Open Library (https://openlibrary.org/developers/api)
-
 ## Figma skiss
 Detta är [Figma skiss](https://www.figma.com/design/3rBfG7l5Ykf9GR0NB2bLX5/Untitled?node-id=0-1&t=U47g0XcbniCdzGD0-0) för projektet. Den är inte fullständig, men det har varit grunden till projektet.
 
@@ -33,6 +31,8 @@ Detta är [Figma skiss](https://www.figma.com/design/3rBfG7l5Ykf9GR0NB2bLX5/Unti
 - **Trello för projekt hantering**
 - **Github för att versionskontroll mm**
 - **Mui komponent bibliotek**
+
+## använt Open Library (https://openlibrary.org/developers/api)
 
 
 ### Av Eva-Li Nätynki Bodén 2024-05-15
