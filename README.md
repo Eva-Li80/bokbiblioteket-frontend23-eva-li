@@ -12,7 +12,7 @@ Användaren kan även få annan information som tex medelbetyg på alla lästa b
 En applikation för den som främst tycker om att läsa böcker och ha koll på dem.
 
 
-## Starta projketet
+## Starta projektet
 ### klona projektet på github (https://github.com/Eva-Li80/bokbiblioteket-frontend23-eva-li.git)
 ### npm install or yarn install
 ### npm run dev
