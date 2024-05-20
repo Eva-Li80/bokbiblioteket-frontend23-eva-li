@@ -13,7 +13,7 @@ En applikation för den som främst tycker om att läsa böcker och ha koll på 
 
 
 ## Starta projketet
-### klona projektet på github
+### klona projektet på github (https://github.com/Eva-Li80/bokbiblioteket-frontend23-eva-li.git)
 ### npm install or yarn install
 ### npm run dev
 ### öppna  [http://localhost:3000](http://localhost:3000) med din webbläsare för att se The Library.
