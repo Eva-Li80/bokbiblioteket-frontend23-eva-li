@@ -2,11 +2,13 @@
 import {
   addToFavoritBooks,
   addToReadBooks,
+  clearSelectedBook,
   removeFavoritBook,
+  selectBook,
 } from "@/app/globalredux/feature/books/bookSlice";
 import { RootState } from "@/app/globalredux/store";
 import { Book } from "@/app/lib/types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../search.module.scss";
 import Modal from "@/app/components/Modal/Modal";
@@ -18,9 +20,9 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import openModal from "../../utility/openModule";
 import { useToggle } from "../../hooks/useToggle";
 
-export default function page() {
+export default function Page() {
   const books = useSelector((state: RootState) => state.book.books);
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const selectedBook = useSelector((state:RootState) => state.book.selectedBook);
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const favBooks = useSelector((state: RootState) => state.book.favoritBooks);
@@ -30,9 +32,13 @@ export default function page() {
 
   const { toggle, handleToggle } = useToggle();
 
+  useEffect(() => {
+    dispatch(clearSelectedBook());
+  }, [dispatch]);
+
   const handleBookClick = (book: Book) => {
-    setSelectedBook(book);
-  };
+    dispatch(selectBook(book))
+   };
 
   const handleAddToFavorite = () => {
     if (selectedBook) {

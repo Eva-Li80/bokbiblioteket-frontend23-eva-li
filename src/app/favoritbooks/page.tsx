@@ -7,7 +7,7 @@ import styles from "./favoritbooks.module.scss";
 import BookDetails from "../components/Details/BookDetails";
 import List from "../components/List/List";
 
-const page = () => {
+const Page = () => {
   const favoriteBooks = useSelector(
     (state: RootState) => state.book.favoritBooks
   );
@@ -41,4 +41,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -5,12 +5,15 @@ type BookState = {
   books: Book[];
   favoritBooks: Book[];
   readBooks: Book[]
+  selectedBook: Book | null
 };
 
 const initialState: BookState = {
   books: [],
   favoritBooks: [],
-  readBooks: []
+  readBooks: [],
+  selectedBook: null
+  
 };
 
 const bookSlice = createSlice({
@@ -19,6 +22,12 @@ const bookSlice = createSlice({
   reducers: {
     setBooks(state, action: PayloadAction<Book[]>) {
       state.books = action.payload;
+    },
+    selectBook(state, action: PayloadAction<Book | null>){
+      state.selectedBook = action.payload
+    },
+    clearSelectedBook(state) {
+      state.selectedBook = null;
     },
   
     addToFavoritBooks(state, action: PayloadAction<Book>) {
@@ -60,5 +69,5 @@ const bookSlice = createSlice({
   
 });
 
-export const { setBooks, addToFavoritBooks, removeFavoritBook, addToReadBooks, removeReadBook, addInfoAboutBook} = bookSlice.actions;
+export const { setBooks, addToFavoritBooks, removeFavoritBook, addToReadBooks, removeReadBook, addInfoAboutBook, selectBook, clearSelectedBook} = bookSlice.actions;
 export default bookSlice.reducer;

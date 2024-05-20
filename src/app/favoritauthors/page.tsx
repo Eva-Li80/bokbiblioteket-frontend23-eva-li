@@ -7,7 +7,7 @@ import { removeFavoritAuhor } from "../globalredux/feature/authors/authorSlice";
 import List from "../components/List/List";
 import AuthorDetails from "../components/Details/AuthorDetails";
 
-const page = () => {
+const Page = () => {
   const favoriteAuthors = useSelector((state: RootState) => state.authors.favoritAuthors);
   const dispatch = useDispatch();
 
@@ -28,4 +28,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default Page;
