@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useSearchData } from "../hooks/useSearchData"
+import { useSearchData } from "../../hooks/useSearchData"
 import Link from "next/link";
 import styles from "./searches.module.scss";
 

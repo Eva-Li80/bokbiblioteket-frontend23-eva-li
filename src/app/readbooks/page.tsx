@@ -12,9 +12,9 @@ import Form from "../components/Form/Form";
 import List from "../components/List/List";
 import ButtonSmall from "../components/Buttons/ButtonSmall";
 import ButtonMedium from "../components/Buttons/ButtonMedium";
-import { countBooks } from "../components/utility/countBooks";
-import { calcTotalPages } from "../components/utility/calcTotalPages";
-import { calcTotal } from "../components/utility/calcTotal";
+import { countBooks } from "../utility/countBooks";
+import { calcTotalPages } from "../utility/calcTotalPages";
+import { calcTotal } from "../utility/calcTotal";
 
 const Page = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);

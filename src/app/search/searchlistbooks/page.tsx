@@ -15,8 +15,8 @@ import BookDetails from "@/app/components/Details/BookDetails";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import openModal from "../../components/utility/openModule";
-import { useToggle } from "@/app/components/hooks/useToggle";
+import openModal from "../../utility/openModule";
+import { useToggle } from "../../hooks/useToggle";
 
 export default function page() {
   const books = useSelector((state: RootState) => state.book.books);
