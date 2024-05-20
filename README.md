@@ -23,7 +23,7 @@ En applikation för den som främst tycker om att läsa böcker och ha koll på 
 ## Figma skiss
 Detta är [Figma skiss](https://www.figma.com/design/3rBfG7l5Ykf9GR0NB2bLX5/Untitled?node-id=0-1&t=U47g0XcbniCdzGD0-0) för projektet. Den är inte fullständig, men det har varit grunden till projektet.
 
-## Tekik stack
+## Teknik stack & verktyg
 - **Next.js: För användnig av filbaserad routing**
 - **React: För byggande av användargränssnittet.**
 - **Redux Toolkit: För global state management.**
