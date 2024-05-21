@@ -49,7 +49,7 @@ const BookDetails = ({
           {showGenre && subjects.length > 0 && (
             <p>Genre: {subjects[0]}</p>
           )}
-          {subjects && author_name.length > 0 && (
+          {author_name.length > 0 && (
             <p>Author: {author_name[0]}</p>
           )}
           <p>Year: {first_publish_year}</p>
