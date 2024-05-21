@@ -1,12 +1,11 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .about {
   h2 {
-    font-size: 25px;
-    padding: 10px;
+    @include fontsizePadding(25px, 10px);
   }
   p {
-    font-size: 20px;
-    padding: 15px;
+    @include fontsizePadding(20px, 15px);
   }
 }

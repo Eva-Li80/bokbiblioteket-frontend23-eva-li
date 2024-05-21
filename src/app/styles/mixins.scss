@@ -71,6 +71,11 @@
   font-weight: $fontWeight;
 }
 
+@mixin fontsizePadding($fontsize, $padding) {
+  font-size: $fontsize;
+  padding: $padding;
+}
+
 
   
   
