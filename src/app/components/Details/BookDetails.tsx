@@ -4,7 +4,7 @@ import ButtonSmall from "../Buttons/ButtonSmall";
 import styles from "./details.module.scss";
 
 type BookDetailsProps = {
-  book: Book;
+  book: Book | null;
   showDescription: boolean;
   showpublisher: boolean;
   showGenre: boolean;
@@ -40,7 +40,7 @@ const BookDetails = ({
           <h2>{title}</h2>
           <img
             src={`https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`}
-            alt="Omslagsbild"
+            alt="cover image"
             width={200}
             height={250}
           />
