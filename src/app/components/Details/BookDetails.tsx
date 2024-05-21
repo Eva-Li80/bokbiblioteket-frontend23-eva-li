@@ -45,15 +45,15 @@ const BookDetails = ({
             height={250}
           />
           <p>First sentence: {first_sentence}</p>
-          {showDescription && description && <p>Description: {description}</p>}
-          {showGenre && subjects && subjects.length > 0 && (
+          {showDescription && <p>Description: {description}</p>}
+          {showGenre && subjects.length > 0 && (
             <p>Genre: {subjects[0]}</p>
           )}
           {subjects && author_name.length > 0 && (
             <p>Author: {author_name[0]}</p>
           )}
           <p>Year: {first_publish_year}</p>
-          {showpublisher && publisher && publisher.length > 0 && (
+          {showpublisher && publisher.length > 0 && (
             <p>Publisher: {publisher}</p>
           )}
           {onClick && (
