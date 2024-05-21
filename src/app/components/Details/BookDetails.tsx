@@ -1,6 +1,6 @@
 import React from "react";
 import { Book } from "../../lib/types";
-import ButtonSmall from "../Buttons/ButtonSmall";
+import ButtonSmall from "../Buttons/ButtonSmall"; 
 import styles from "./details.module.scss";
 
 type BookDetailsProps = {
@@ -20,9 +20,11 @@ const BookDetails = ({
   className,
   onClick,
 }: BookDetailsProps) => {
+
   if (!book) {
     return <div>No Books!</div>;
   }
+
   const {
     title,
     cover_i,
@@ -33,6 +35,7 @@ const BookDetails = ({
     description,
     subjects,
   } = book;
+
   return (
     <div className={styles.about}>
       {title && (
@@ -54,7 +57,7 @@ const BookDetails = ({
           )}
           <p>Year: {first_publish_year}</p>
           {showpublisher && publisher.length > 0 && (
-            <p>Publisher: {publisher}</p>
+            <p>Publisher: {publisher[0]}</p>
           )}
           {onClick && (
             <ButtonSmall onClick={() => onClick(book)}>remove</ButtonSmall>

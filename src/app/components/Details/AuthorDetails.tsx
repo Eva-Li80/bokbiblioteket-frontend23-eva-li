@@ -4,7 +4,7 @@ import ButtonSmall from "../Buttons/ButtonSmall";
 import styles from "./details.module.scss"
 
 type AuthorDetailsProps = {
-  author: Author;
+  author: Author | null;
   onClick?: (book: Author) => void;
   className: string;
 };

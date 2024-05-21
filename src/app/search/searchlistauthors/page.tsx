@@ -15,7 +15,7 @@ import AuthorDetails from "@/app/components/Details/AuthorDetails";
 import Modal from "@/app/components/Modal/Modal";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
-import openModal from "../../utility/openModule";
+import {openModal} from "../../utility/openModule";
 import { useToggle } from "../../hooks/useToggle";
 
 export default function page() {

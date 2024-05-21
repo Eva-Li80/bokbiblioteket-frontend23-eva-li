@@ -17,28 +17,30 @@ import BookDetails from "@/app/components/Details/BookDetails";
 import Favorite from "@/app/components/Favorites/Favorite";
 import Link from "next/link";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import openModal from "../../utility/openModule";
+import { openModal } from "../../utility/openModule";
 import { useToggle } from "../../hooks/useToggle";
 
 export default function Page() {
-  const books = useSelector((state: RootState) => state.book.books);
-  const selectedBook = useSelector((state:RootState) => state.book.selectedBook);
-  const dispatch = useDispatch();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const books = useSelector((state: RootState) => state.book.books); 
+  const selectedBook = useSelector(
+    (state: RootState) => state.book.selectedBook
+  );
+  const dispatch = useDispatch(); 
+  const [modalIsOpen, setModalIsOpen] = useState(false); 
   const favBooks = useSelector((state: RootState) => state.book.favoritBooks);
   const favorite = selectedBook
     ? favBooks.some((book) => book.key === selectedBook.key)
-    : false;
+    : false; 
 
-  const { toggle, handleToggle } = useToggle();
+  const { toggle, handleToggle } = useToggle(); 
 
   useEffect(() => {
     dispatch(clearSelectedBook());
-  }, [dispatch]);
+  }, [dispatch]); 
 
   const handleBookClick = (book: Book) => {
-    dispatch(selectBook(book))
-   };
+    dispatch(selectBook(book));
+  };
 
   const handleAddToFavorite = () => {
     if (selectedBook) {
@@ -46,7 +48,7 @@ export default function Page() {
         dispatch(removeFavoritBook(selectedBook));
       } else {
         dispatch(addToFavoritBooks(selectedBook));
-        openModal(setModalIsOpen, 3000);
+        openModal(setModalIsOpen, 3000); 
       }
     }
     handleToggle();
@@ -103,7 +105,7 @@ export default function Page() {
               <h2 className={styles.listitem}>
                 <img
                   src={`https://covers.openlibrary.org/b/id/${books.cover_i}-L.jpg`}
-                  alt="Omslagsbild"
+                  alt="cover image"
                   width={90}
                   height={120}
                 />
